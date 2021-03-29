@@ -1,14 +1,19 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Entry = () => {
   return (
     <div className="container entry">
       <div className="row">
         <div className="col-6">
-          <button className="button">Sign Up</button>
+          <Link to="/register">
+            <button className="button">Sign Up</button>
+          </Link>
         </div>
         <div className="col-6">
-          <button className="button">Login</button>
+          <Link to="/login">
+            <button className="button">Login</button>
+          </Link>
         </div>
       </div>
       <div className="row mt-4">
