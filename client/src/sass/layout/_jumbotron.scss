@@ -1,0 +1,12 @@
+.jumbotron {
+  background-image: url("../../images/markets.jpg");
+  background-size: cover;
+  background-position: top;
+  height: 500px;
+  .welcome {
+    color: white;
+    position: relative;
+    left: 65px;
+    top: 50px;
+  }
+}
