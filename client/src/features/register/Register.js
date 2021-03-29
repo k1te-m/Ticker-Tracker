@@ -4,9 +4,15 @@ import { selectAuth, registerUser } from "../auth/authSlice";
 import { SET_ALERT } from "../alert/alertSlice";
 import Footer from "../footer/Footer";
 
-const Register = () => {
+const Register = (props) => {
   const auth = useSelector(selectAuth);
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (auth.isAuthenticated) {
+      props.history.push("/dashboard");
+    }
+  }, [auth.error, auth.isAuthenticated, props.history]);
 
   const [userObject, setUserObject] = useState({
     name: "",
