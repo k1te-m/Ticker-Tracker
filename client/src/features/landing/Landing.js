@@ -1,12 +1,17 @@
 import React from "react";
+import Footer from "../footer/Footer";
+import Description from "./description/Description";
+import Entry from "./entry/Entry";
+import Jumbotron from "./jumbotron/Jumbotron";
 
 const Landing = () => {
   return (
-    <div className="container">
-      <div className="row">
-        <h3>Welcome to Ticker Tracker!</h3>
-      </div>
-    </div>
+    <>
+      <Jumbotron />
+      <Entry />
+      <Description />
+      <Footer />
+    </>
   );
 };
 
