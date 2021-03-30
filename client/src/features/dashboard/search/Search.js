@@ -1,21 +1,30 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { selectAuth, loadUser } from "../../auth/authSlice";
+import { selectAuth } from "../../auth/authSlice";
+import { setSearch } from "../search/searchSlice";
 
 const Search = () => {
   const auth = useSelector(selectAuth);
   const dispatch = useDispatch();
+
   const [searchTerm, setSearchTerm] = useState({
-    searchTerm: "",
+    query: "",
   });
 
   const { username } = auth.user;
+
+  const { query } = searchTerm;
 
   // Handles input changes for all form fields
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setSearchTerm({ ...searchTerm, [name]: value });
     console.log(searchTerm);
+  };
+
+  const handleFormSubmit = (event) => {
+    event.preventDefault();
+    dispatch(setSearch(query));
   };
 
   return (
@@ -26,20 +35,18 @@ const Search = () => {
       <div className="row">
         <form className="row align-items-center">
           <div className="col-12">
-            <label className="visually-hidden" for="searchTerm">
-              Ticker
-            </label>
+            <label className="visually-hidden">Ticker</label>
             <div className="input-group">
               <input
                 onChange={handleInputChange}
                 type="text"
                 className="form-control mb-2"
-                name="searchTerm"
+                name="query"
               />
             </div>
           </div>
           <div className="col-12" align="center">
-            <button>Search</button>
+            <button onClick={handleFormSubmit}>Search</button>
           </div>
         </form>
       </div>
