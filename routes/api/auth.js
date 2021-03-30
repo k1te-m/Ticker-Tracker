@@ -1,17 +1,11 @@
 const router = require("express").Router();
 const bcrypt = require("bcryptjs");
-const config = require("config");
 const jwt = require("jsonwebtoken");
 const auth = require("../../middleware/auth");
 const User = require("../../models/User");
+require("dotenv").config();
 
-let jwtENV;
-
-if (process.env.NODE_ENV !== "production") {
-  jwtENV = config.get("JWT_SECRET");
-} else {
-  jwtENV = process.env.JWT_SECRET;
-}
+const jwtENV = process.env.JWT_SECRET;
 
 // @route     GET api/auth/user
 // @desc      Get user data
