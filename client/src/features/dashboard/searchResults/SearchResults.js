@@ -69,9 +69,11 @@ const SearchResults = () => {
       <div className="row">
         <div className="col-12">
           <div className="container pt-2">
-            <div className="row">
-              <h5>News</h5>
-            </div>
+            {search.currentTicker && (
+              <div className="row">
+                <h3>News</h3>
+              </div>
+            )}
             {displayNews}
           </div>
         </div>
