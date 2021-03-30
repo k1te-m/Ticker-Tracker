@@ -10,8 +10,6 @@ const Dashboard = () => {
   const dispatch = useDispatch();
   const auth = useSelector(selectAuth);
 
-  console.log(auth);
-
   useEffect(() => {
     if (!auth.user) {
       dispatch(loadUser());

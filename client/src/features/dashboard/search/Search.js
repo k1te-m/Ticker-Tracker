@@ -19,7 +19,6 @@ const Search = () => {
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setSearchTerm({ ...searchTerm, [name]: value });
-    console.log(searchTerm);
   };
 
   const handleFormSubmit = (event) => {
