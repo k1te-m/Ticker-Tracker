@@ -7,6 +7,7 @@ const key = process.env.IEX_KEY;
 export default {
   searchTicker: (ticker) => {
     delete axios.defaults.headers.common["x-auth-token"];
+    console.log(key);
 
     return axios.get(baseURL + ticker + searchQuery + key);
   },
