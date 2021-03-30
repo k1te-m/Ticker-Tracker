@@ -1,13 +1,7 @@
-const config = require("config");
 const jwt = require("jsonwebtoken");
+require("dotenv").config();
 
-let jwtENV;
-
-if (process.env.NODE_ENV !== "production") {
-  jwtENV = config.get("JWT_SECRET");
-} else {
-  jwtENV = process.env.JWT_SECRET;
-}
+const jwtENV = process.env.JWT_SECRET;
 
 function auth(req, res, next) {
   const token = req.header("x-auth-token");
