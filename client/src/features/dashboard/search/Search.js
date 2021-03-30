@@ -27,27 +27,29 @@ const Search = () => {
   };
 
   return (
-    <div className="container search p-0">
+    <div className="container search">
       <div className="row">
         <h3>Welcome, {username}</h3>
       </div>
       <div className="row">
-        <form className="row align-items-center">
-          <div className="col-12">
-            <label className="visually-hidden">Ticker</label>
-            <div className="input-group">
-              <input
-                onChange={handleInputChange}
-                type="text"
-                className="form-control mb-2"
-                name="query"
-              />
+        <div className="col-12">
+          <form className="row align-items-center">
+            <div className="col-12">
+              <label className="visually-hidden">Ticker</label>
+              <div className="input-group">
+                <input
+                  onChange={handleInputChange}
+                  type="text"
+                  className="form-control mb-2"
+                  name="query"
+                />
+              </div>
             </div>
-          </div>
-          <div className="col-12" align="center">
-            <button onClick={handleFormSubmit}>Search</button>
-          </div>
-        </form>
+            <div className="col-12" align="center">
+              <button onClick={handleFormSubmit}>Search</button>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
   );
