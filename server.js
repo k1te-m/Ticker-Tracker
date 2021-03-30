@@ -2,11 +2,11 @@ const express = require("express");
 const path = require("path");
 const mongoose = require("mongoose");
 const routes = require("./routes");
-const config = require("config");
+require("dotenv").config();
 
 // MongoDB Connection
 mongoose
-  .connect(process.env.MONGODB_URI || config.get("MONGODB_URI"), {
+  .connect(process.env.MONGODB_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true,
