@@ -5,41 +5,76 @@ import { selectSearch } from "../search/searchSlice";
 const SearchResults = () => {
   const search = useSelector(selectSearch);
 
-  //   const {
-  //     symbol,
-  //     companyName,
-  //     latestTime,
-  //     iexRealtimePrice,
-  //     week52High,
-  //     week52Low,
-  //     change,
-  //     changePercent,
-  //     previousClose,
-  //   } = search.currentTicker;
-
   let tickerCard = null;
+  let displayNews = null;
 
-  //   if (search.currentTicker) {
-  //     tickerCard = (
-  //       <div className="container stock-info">
-  //         <div className="row">
-  //           <h6>
-  //             {companyName}, ({symbol})
-  //           </h6>
-  //           <span className="time-stamp">{latestTime}</span>
-  //         </div>
-  //         <div className="row row-cols-3 my-auto">
-  //           <h5>${iexRealtimePrice}</h5>
-  //           <span>{changePercent}</span>
-  //           <span>{change} Today</span>
-  //         </div>
-  //       </div>
-  //     );
-  //   }
+  if (search.currentTicker) {
+    const {
+      symbol,
+      companyName,
+      latestTime,
+      iexRealtimePrice,
+      week52High,
+      week52Low,
+      change,
+      changePercent,
+      previousClose,
+    } = search.currentTicker.quote;
+
+    const { news } = search.currentTicker;
+
+    const size = 5;
+    const filteredNews = news.slice(0, size);
+
+    console.log(filteredNews);
+
+    displayNews = filteredNews.map((news) => (
+      <div className="row">
+        <p>{news.headline}</p>
+      </div>
+    ));
+
+    tickerCard = (
+      <div className="container stock-info my-auto">
+        <div className="row">
+          <h6>
+            {companyName}, ({symbol})
+          </h6>
+          <span className="time-stamp">{latestTime}</span>
+        </div>
+        <div className="row row-cols-3 my-auto">
+          <h5>${iexRealtimePrice}</h5>
+          <span>{changePercent}%</span>
+          <span>${change} Today</span>
+        </div>
+        <div className="row">
+          <div className="col">
+            <span>52 Week High: ${week52High}</span>
+          </div>
+          <div className="col">
+            <span>52 Week Low: ${week52Low}</span>
+          </div>
+        </div>
+        <div className="row">
+          <div className="col-12">Previous Close: ${previousClose}</div>
+        </div>
+      </div>
+    );
+  }
   return (
     <div className="container-fluid pt-2">
       <div className="row">
         <div className="col-12">{tickerCard}</div>
+      </div>
+      <div className="row">
+        <div className="col-12">
+          <div className="container pt-2">
+            <div className="row">
+              <h5>News</h5>
+            </div>
+            {displayNews}
+          </div>
+        </div>
       </div>
     </div>
   );
