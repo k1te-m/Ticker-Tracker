@@ -23,7 +23,7 @@ const Dashboard = () => {
           <div className="col-2 p-0">
             <Sidebar />
           </div>
-          <div className="col p-0">
+          <div className="col-10 p-0">
             <Search />
             <SearchResults />
           </div>
