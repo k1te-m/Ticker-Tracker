@@ -2,6 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { selectSearch } from "../search/searchSlice";
 import TickerChart from "./TickerChart";
+import WatchButton from "./WatchButton";
 
 const SearchResults = () => {
   const search = useSelector(selectSearch);
@@ -44,9 +45,14 @@ const SearchResults = () => {
     tickerCard = (
       <div className="container stock-info my-auto">
         <div className="row">
-          <h6>
-            {companyName}, ({symbol})
-          </h6>
+          <div className="col-10">
+            <h6>
+              {companyName}, ({symbol})
+            </h6>
+          </div>
+          <div className="col-2">
+            <WatchButton />
+          </div>
           <span className="time-stamp">{latestTime}</span>
         </div>
         <div className="row row-cols-3 my-auto">
