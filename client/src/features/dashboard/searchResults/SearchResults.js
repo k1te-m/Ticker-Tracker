@@ -1,6 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { selectSearch } from "../search/searchSlice";
+import TickerChart from "./TickerChart";
 
 const SearchResults = () => {
   const search = useSelector(selectSearch);
@@ -30,7 +31,13 @@ const SearchResults = () => {
 
     displayNews = filteredNews.map((news) => (
       <div className="row">
-        <p>{news.headline}</p>
+        <li>
+          <a href={news.url} target="_blank" rel="noreferrer">
+            <div>
+              <span>{news.headline}</span>
+            </div>
+          </a>
+        </li>
       </div>
     ));
 
@@ -61,20 +68,24 @@ const SearchResults = () => {
       </div>
     );
   }
+
   return (
     <div className="container-fluid pt-2">
       <div className="row">
         <div className="col-12">{tickerCard}</div>
       </div>
+      <div className="row pt-2 chart ">
+        <TickerChart />
+      </div>
       <div className="row">
         <div className="col-12">
-          <div className="container pt-2">
+          <div className="container pt-2 news">
             {search.currentTicker && (
               <div className="row">
                 <h3>News</h3>
               </div>
             )}
-            {displayNews}
+            <ul>{displayNews}</ul>
           </div>
         </div>
       </div>

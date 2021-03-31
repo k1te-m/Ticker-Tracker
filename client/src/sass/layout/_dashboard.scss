@@ -1,7 +1,16 @@
+// p:last-child {
+//   margin-bottom: 0;
+// }
+
+.dashboard {
+  justify-content: center;
+  align-items: center;
+}
+
 .sidebar {
   padding: 0;
   margin: 0;
-  height: 100vh;
+  height: 100%;
   background-color: gainsboro;
   border-right: 1px solid black;
   ul {
@@ -25,4 +34,24 @@
 .stock-info {
   text-align: center;
   border: 1px solid black;
+  border-radius: 5px;
+  background-color: gainsboro;
+}
+
+.chart-container {
+  text-align: center;
+  canvas {
+    margin: 0 auto;
+  }
+}
+
+.chart {
+  height: 350px;
+  width: auto;
+}
+
+.news {
+  p:last-child {
+    margin-bottom: 0;
+  }
 }
