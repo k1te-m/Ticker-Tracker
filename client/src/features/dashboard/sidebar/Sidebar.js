@@ -20,7 +20,7 @@ const Sidebar = () => {
 
   let symbolList;
 
-  if (userFollowedSymbols.length > 0) {
+  if (userFollowedSymbols) {
     symbolList = userFollowedSymbols.map((symbol) => (
       <li className="list-group-item card">
         <span>{symbol}</span>
