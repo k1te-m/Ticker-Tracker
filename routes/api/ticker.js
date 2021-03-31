@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const axios = require("axios");
+const watchController = require("../../controllers/watchController");
 const auth = require("../../middleware/auth");
 const baseURL = "https://cloud.iexapis.com/stable/stock/";
 const searchQuery = "/batch?types=quote,news,chart&range=1m&last=10&token=";
@@ -24,5 +25,15 @@ router.get("/query/:ticker", async (req, res) => {
     });
   }
 });
+
+// @route     PUT api/ticker/follow/:id
+// @desc      Add symbol to user watched tickers
+// @access    Private
+router.put("/follow/:id", watchController.watchStock);
+
+// @route     GET api/ticker/symbols/:id
+// @desc      Get all user followed symbols
+// @access    Private
+router.get("/symbols/:id", watchController.getSymbols);
 
 module.exports = router;
