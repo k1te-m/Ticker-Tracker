@@ -28,6 +28,9 @@ const userSchema = new Schema({
     type: Date,
     default: Date.now,
   },
+  followedSymbols: {
+    type: [String],
+  },
 });
 
 module.exports = mongoose.model("User", userSchema);
