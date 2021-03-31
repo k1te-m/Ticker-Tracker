@@ -1,6 +1,10 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getFollowedSymbols, selectSearch } from "../search/searchSlice";
+import {
+  getFollowedSymbols,
+  selectSearch,
+  setSearch,
+} from "../search/searchSlice";
 import { selectAuth } from "../../auth/authSlice";
 
 const Sidebar = () => {
@@ -20,10 +24,15 @@ const Sidebar = () => {
 
   let symbolList;
 
+  const hanldeClick = (e, symbol) => {
+    e.preventDefault();
+    dispatch(setSearch(symbol));
+  };
+
   if (userFollowedSymbols) {
     symbolList = userFollowedSymbols.map((symbol) => (
       <li className="list-group-item card">
-        <span>{symbol}</span>
+        <span onClick={(e) => hanldeClick(e, symbol)}>{symbol}</span>
       </li>
     ));
   }
