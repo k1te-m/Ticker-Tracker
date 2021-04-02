@@ -4,6 +4,7 @@ import {
   getFollowedSymbols,
   selectSearch,
   setSearch,
+  REMOVE_SEARCH,
 } from "../search/searchSlice";
 import { selectAuth } from "../../auth/authSlice";
 
@@ -27,6 +28,11 @@ const Sidebar = () => {
     dispatch(setSearch(symbol));
   };
 
+  const handleHomeClick = (e) => {
+    e.preventDefault();
+    dispatch(REMOVE_SEARCH());
+  };
+
   if (userFollowedSymbols) {
     symbolList = userFollowedSymbols.map((symbol) => (
       <li className="list-group-item card">
@@ -39,7 +45,7 @@ const Sidebar = () => {
     <div className="container sidebar">
       <ul className="list-group pt-2">
         <li className="list-group-item card">
-          <i class="fas fa-home"></i>
+          <i className="fas fa-home" onClick={(e) => handleHomeClick(e)} />
         </li>
         {symbolList}
       </ul>

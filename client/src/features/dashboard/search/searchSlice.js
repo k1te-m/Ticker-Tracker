@@ -6,6 +6,7 @@ const initialState = {
   currentTicker: null,
   error: null,
   userFollowedSymbols: null,
+  userFollowedData: null,
 };
 
 export const setSearch = createAsyncThunk(
@@ -42,10 +43,22 @@ export const getFollowedSymbols = createAsyncThunk(
   }
 );
 
+export const getFollowedData = createAsyncThunk(
+  "search/getFollowedData",
+  async (tickers, thunkAPI) => {
+    const response = await API.getFollowedInfo(tickers);
+    return response.data;
+  }
+);
+
 export const searchSlice = createSlice({
   name: "search",
   initialState,
-  reducers: {},
+  reducers: {
+    REMOVE_SEARCH: () => {
+      return { currentTicker: null };
+    },
+  },
   extraReducers: {
     [setSearch.pending]: (state) => {
       state.isLoading = true;
@@ -91,8 +104,21 @@ export const searchSlice = createSlice({
       state.isLoading = false;
       state.error = "Error unwatching stock.";
     },
+    [getFollowedData.pending]: (state) => {
+      state.isLoading = true;
+    },
+    [getFollowedData.fulfilled]: (state, action) => {
+      state.isLoading = false;
+      state.userFollowedData = action.payload;
+    },
+    [getFollowedData.rejected]: (state) => {
+      state.isLoading = false;
+      state.error = "Error fetching data.";
+    },
   },
 });
+
+export const { REMOVE_SEARCH } = searchSlice.actions;
 
 // Selectors
 export const selectSearch = (state) => state.search;
