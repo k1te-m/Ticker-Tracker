@@ -4,6 +4,10 @@ const watchController = require("../../controllers/watchController");
 const auth = require("../../middleware/auth");
 const baseURL = "https://cloud.iexapis.com/stable/stock/";
 const searchQuery = "/batch?types=quote,news,chart&range=1m&last=10&token=";
+const baseQueryURL =
+  "https://cloud.iexapis.com/stable/stock/market/batch?symbols=";
+const batchQuery = "&types=quote&range=1m&last=5&token=";
+
 require("dotenv").config();
 
 // @route     GET api/ticker/query/:ticker
@@ -20,6 +24,26 @@ router.get("/query/:ticker", async (req, res) => {
     res.send(response.data);
   } catch (error) {
     res.status(500).json({
+      success: false,
+      message: error.message,
+    });
+  }
+});
+
+// @route     GET api/ticker/batchquery/:tickers
+// @desc      Get multiple tickers data
+// @access    Private
+router.get("/batchquery/:tickers", async (req, res) => {
+  const tickers = req.params.tickers;
+  console.log(baseQueryURL + tickers + batchQuery + process.env.IEX_KEY);
+  try {
+    const response = await axios.get(
+      baseQueryURL + tickers + batchQuery + process.env.IEX_KEY
+    );
+
+    res.send(response.data);
+  } catch (error) {
+    restart.status(500).json({
       success: false,
       message: error.message,
     });
