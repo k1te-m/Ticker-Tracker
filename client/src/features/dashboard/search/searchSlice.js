@@ -29,7 +29,6 @@ export const unwatchStock = createAsyncThunk(
   "search/unwatchStock",
   async ({ id, symbol }, thunkAPI) => {
     const response = await API.unwatchStock(id, { symbol: symbol });
-    console.log(response.data);
     return response.data;
   }
 );
