@@ -6,6 +6,11 @@ export default {
 
     return axios.get("/api/ticker/query/" + ticker);
   },
+  getFollowedInfo: (tickers) => {
+    delete axios.defaults.headers.common["x-auth-token"];
+
+    return axios.get("/api/ticker/batchquery/" + tickers);
+  },
   watchStock: async (id, symbol) => {
     return await axios.put("/api/ticker/follow/" + id, symbol);
   },
