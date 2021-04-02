@@ -15,7 +15,7 @@ const SearchResults = () => {
       symbol,
       companyName,
       latestTime,
-      iexRealtimePrice,
+      latestPrice,
       week52High,
       week52Low,
       change,
@@ -54,7 +54,7 @@ const SearchResults = () => {
           <span className="time-stamp">{latestTime}</span>
         </div>
         <div className="row row-cols-3 my-auto">
-          <h5>${iexRealtimePrice}</h5>
+          <h5>${latestPrice}</h5>
           <span>{changePercent}%</span>
           <span>${change} Today</span>
         </div>
