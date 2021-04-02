@@ -31,6 +31,11 @@ router.get("/query/:ticker", async (req, res) => {
 // @access    Private
 router.put("/follow/:id", watchController.watchStock);
 
+// @route     PUT api/ticker/follow/:id
+// @desc      Add symbol to user watched tickers
+// @access    Private
+router.put("/unfollow/:id", watchController.unwatchStock);
+
 // @route     GET api/ticker/symbols/:id
 // @desc      Get all user followed symbols
 // @access    Private

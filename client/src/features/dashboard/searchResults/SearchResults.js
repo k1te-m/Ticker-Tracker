@@ -28,8 +28,6 @@ const SearchResults = () => {
     const size = 5;
     const filteredNews = news.slice(0, size);
 
-    console.log(filteredNews);
-
     displayNews = filteredNews.map((news) => (
       <div className="row">
         <li>

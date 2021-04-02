@@ -11,7 +11,7 @@ module.exports = {
 
       await user.save();
 
-      res.send(user);
+      res.send(user.followedSymbols);
     } catch (error) {}
     res.status(422).json(error);
   },
@@ -36,7 +36,7 @@ module.exports = {
 
       await user.save();
 
-      res.send(user);
+      res.send(user.followedSymbols);
     } catch (error) {
       res.status(422).json(error);
     }

@@ -14,8 +14,6 @@ const Sidebar = () => {
 
   const { userFollowedSymbols } = search;
 
-  console.log(userFollowedSymbols);
-
   const id = auth.user._id;
 
   useEffect(() => {

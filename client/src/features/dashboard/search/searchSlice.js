@@ -25,6 +25,14 @@ export const watchStock = createAsyncThunk(
   }
 );
 
+export const unwatchStock = createAsyncThunk(
+  "search/unwatchStock",
+  async ({ id, symbol }, thunkAPI) => {
+    const response = await API.unwatchStock(id, { symbol: symbol });
+    return response.data;
+  }
+);
+
 export const getFollowedSymbols = createAsyncThunk(
   "search/getFollowedSymbols",
   async (id, thunkAPI) => {
@@ -64,12 +72,24 @@ export const searchSlice = createSlice({
     [watchStock.pending]: (state) => {
       state.isLoading = true;
     },
-    [watchStock.fulfilled]: (state) => {
+    [watchStock.fulfilled]: (state, action) => {
       state.isLoading = false;
+      state.userFollowedSymbols = action.payload;
     },
     [watchStock.rejected]: (state) => {
       state.isLoading = false;
       state.error = "Error watching stock.";
+    },
+    [unwatchStock.pending]: (state) => {
+      state.isLoading = true;
+    },
+    [unwatchStock.fulfilled]: (state, action) => {
+      state.isLoading = false;
+      state.userFollowedSymbols = action.payload;
+    },
+    [unwatchStock.rejected]: (state) => {
+      state.isLoading = false;
+      state.error = "Error unwatching stock.";
     },
   },
 });
