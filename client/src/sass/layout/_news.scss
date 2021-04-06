@@ -1,0 +1,15 @@
+@import "../helpers/variables";
+
+.news {
+  a {
+    color: $secondaryText;
+  }
+  li {
+    color: $secondaryText;
+    margin-bottom: 0.75rem;
+  }
+  h3 {
+    color: $primaryText;
+    text-align: center;
+  }
+}

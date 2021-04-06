@@ -109,7 +109,10 @@ const SearchResults = () => {
             <div className="col-6 dollar-change loss">
               <i className="fas fa-long-arrow-alt-down" />${change} Today
             </div>
-            <div className="col-6 percent-change loss">{changePercent}%</div>
+            <div className="col-6 percent-change loss">
+              <i className="fas fa-long-arrow-alt-down" />
+              {changePercent}%
+            </div>
           </div>
           <div className="row week pb-2">
             <div className="col">

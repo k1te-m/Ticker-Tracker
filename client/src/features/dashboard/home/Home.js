@@ -32,38 +32,93 @@ const Home = () => {
       dispatch(setSearch(ticker));
     };
 
-    followedTickers = arrayOfFollwedData.map((ticker) => (
-      <button
-        className="ticker-button"
-        onClick={(e) => {
-          handleClick(e, ticker.quote.symbol);
-        }}
-      >
-        <div className="card home-card">
-          <div className="card-body">
-            <div className="row">
-              <h5 className="card-title">{ticker.quote.companyName}</h5>
-            </div>
-            <div className="row">
-              <h6 className="card-text">${ticker.quote.latestPrice}</h6>
-            </div>
-            <div className="row">
-              <div className="col-7">
-                <span className="card-text">${ticker.quote.change} Today</span>
+    followedTickers = arrayOfFollwedData.map((ticker) => {
+      if (ticker.quote.change >= 0) {
+        return (
+          <button
+            className="ticker-button"
+            onClick={(e) => {
+              handleClick(e, ticker.quote.symbol);
+            }}
+          >
+            <div className="card home-card">
+              <div className="card-body">
+                <div className="row">
+                  <h5 className="card-title">
+                    {ticker.quote.companyName}, ({ticker.quote.symbol})
+                  </h5>
+                </div>
+                <div className="row">
+                  <h6 className="card-text gain">
+                    ${ticker.quote.latestPrice}
+                  </h6>
+                </div>
+                <div className="row">
+                  <div className="col-7">
+                    <span className="card-text gain">
+                      <i className="fas fa-long-arrow-alt-up" /> $
+                      {ticker.quote.change} Today
+                    </span>
+                  </div>
+                  <div className="col-5">
+                    <span className="card-text gain">
+                      <i className="fas fa-long-arrow-alt-up" />
+                      {ticker.quote.changePercent}%
+                    </span>
+                  </div>
+                </div>
               </div>
-              <div className="col-5">
-                <span className="card-text">{ticker.quote.changePercent}%</span>
+            </div>
+          </button>
+        );
+      } else if (ticker.quote.change < 0) {
+        return (
+          <button
+            className="ticker-button"
+            onClick={(e) => {
+              handleClick(e, ticker.quote.symbol);
+            }}
+          >
+            <div className="card home-card">
+              <div className="card-body">
+                <div className="row">
+                  <h5 className="card-title">
+                    {ticker.quote.companyName}, ({ticker.quote.symbol})
+                  </h5>
+                </div>
+                <div className="row">
+                  <h6 className="card-text loss">
+                    ${ticker.quote.latestPrice}
+                  </h6>
+                </div>
+                <div className="row">
+                  <div className="col-7">
+                    <span className="card-text loss">
+                      <i className="fas fa-long-arrow-alt-down" /> $
+                      {ticker.quote.change} Today
+                    </span>
+                  </div>
+                  <div className="col-5">
+                    <span className="card-text loss">
+                      <i className="fas fa-long-arrow-alt-down" />
+                      {ticker.quote.changePercent}%
+                    </span>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
-        </div>
-      </button>
-    ));
+          </button>
+        );
+      }
+    });
   }
 
   return (
     <div className="container-fluid home">
       <Search />
+      <h5 className="mt-3">
+        FOLLOWED TICKERS <i className="fas fa-chart-line" />
+      </h5>
       <div className="row row-cols-md-2 pt-2 pb-2">{followedTickers}</div>
     </div>
   );
