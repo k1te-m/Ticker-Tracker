@@ -27,9 +27,12 @@ const Search = () => {
   };
 
   return (
-    <div className="container search">
+    <div className="container-fluid search pt-3">
       <div className="row">
         <h3 className="welcome">Welcome, {username}!</h3>
+      </div>
+      <div className="row">
+        <p>Enter any stock ticker and select search to retrieve ticker data.</p>
       </div>
       <div className="row">
         <div className="col-12">
@@ -46,7 +49,9 @@ const Search = () => {
               </div>
             </div>
             <div className="col-12" align="center">
-              <button onClick={handleFormSubmit}>Search</button>
+              <button onClick={handleFormSubmit} className="search-button btn">
+                Search
+              </button>
             </div>
           </form>
         </div>
