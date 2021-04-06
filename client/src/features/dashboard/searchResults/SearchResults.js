@@ -43,31 +43,36 @@ const SearchResults = () => {
     tickerCard = (
       <div className="container stock-info my-auto">
         <div className="row">
-          <div className="col-10">
+          <div className="col-12">
             <h6>
               {companyName}, ({symbol})
             </h6>
           </div>
-          <div className="col-2">
-            <WatchButton />
-          </div>
-          <span className="time-stamp">{latestTime}</span>
         </div>
-        <div className="row row-cols-3 my-auto">
-          <h5>${latestPrice}</h5>
-          <span>{changePercent}%</span>
-          <span>${change} Today</span>
+        <div className="row mb-2">
+          <WatchButton />
         </div>
         <div className="row">
-          <div className="col">
-            <span>52 Week High: ${week52High}</span>
-          </div>
-          <div className="col">
-            <span>52 Week Low: ${week52Low}</span>
+          <h5 className="latest-price">
+            ${latestPrice} <span className="time-stamp">({latestTime})</span>
+          </h5>
+        </div>
+        <div className="row mb-1">
+          <div className="col-6 dollar-change">${change} Today</div>
+          <div className="col-6 percent-change">{changePercent}%</div>
+        </div>
+        <div className="row mb-2">
+          <div className="col-12 prev-close">
+            Previous Close: ${previousClose}
           </div>
         </div>
-        <div className="row">
-          <div className="col-12">Previous Close: ${previousClose}</div>
+        <div className="row week pb-2">
+          <div className="col">
+            <span className="high">52 Week High: ${week52High}</span>
+          </div>
+          <div className="col">
+            <span className="low">52 Week Low: ${week52Low}</span>
+          </div>
         </div>
       </div>
     );

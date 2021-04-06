@@ -35,16 +35,18 @@ const Sidebar = () => {
 
   if (userFollowedSymbols) {
     symbolList = userFollowedSymbols.map((symbol) => (
-      <li className="list-group-item card">
-        <span onClick={(e) => hanldeClick(e, symbol)}>{symbol}</span>
+      <li className="list-group-item card mt-2">
+        <span className="side-symbol" onClick={(e) => hanldeClick(e, symbol)}>
+          {symbol}
+        </span>
       </li>
     ));
   }
 
   return (
-    <div className="container sidebar">
+    <div className="container-fluid sidebar">
       <ul className="list-group pt-2">
-        <li className="list-group-item card">
+        <li className="list-group-item card mt-2">
           <i className="fas fa-home" onClick={(e) => handleHomeClick(e)} />
         </li>
         {symbolList}
