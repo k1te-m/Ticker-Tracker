@@ -23,7 +23,10 @@
     width: 40px;
     border-radius: 50%;
     background-color: $topGradient;
-    color: $primaryText;
+    color: $gain;
+    i {
+      font-size: 1rem;
+    }
   }
   li {
     padding: 5px 10px;
@@ -31,10 +34,24 @@
     align-items: center;
     justify-content: center;
     font-weight: bold;
-    font-size: 14px;
+    font-size: 11px;
   }
   .side-symbol {
-    color: green;
+    color: $primaryText;
+  }
+}
+
+.news {
+  a {
+    color: $secondaryText;
+  }
+  li {
+    color: $secondaryText;
+    margin-bottom: 0.75rem;
+  }
+  h3 {
+    color: $primaryText;
+    text-align: center;
   }
 }
 
