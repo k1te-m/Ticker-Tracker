@@ -29,7 +29,7 @@ const WatchButton = () => {
   if (userFollowedSymbols.includes(search.currentTicker.quote.symbol)) {
     return (
       <button
-        className="watch-button"
+        className="unwatch-button"
         onClick={(e) => {
           unFollowStock(e);
         }}

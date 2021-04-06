@@ -4,6 +4,8 @@
 @import "layout/description.scss";
 @import "layout/dashboard.scss";
 @import "layout/footer.scss";
+@import "helpers/variables.scss";
+@import "layout/search";
 
 html,
 body {
@@ -12,6 +14,7 @@ body {
   margin: 0px;
   padding: 0px;
   overflow-x: hidden;
+  background-color: $background;
 }
 
 html {
@@ -20,9 +23,7 @@ html {
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+  font-family: "Noto Sans JP", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

@@ -1,0 +1,43 @@
+.search {
+  padding-left: 1rem;
+  .search-term {
+    width: 70%;
+  }
+  color: $primaryText;
+}
+
+.stock-info {
+  text-align: center;
+  border: 1px solid black;
+  border-radius: 5px;
+  background-color: $topGradient;
+  color: $primaryText;
+  .latest-price {
+    font-size: 25px;
+  }
+  .time-stamp {
+    font-size: 10px;
+    color: $secondaryText;
+  }
+  .week {
+    font-size: 10px;
+  }
+}
+
+.chart-container {
+  text-align: center;
+  canvas {
+    margin: 0 auto;
+  }
+}
+
+.chart {
+  height: 350px;
+  width: auto;
+}
+
+.news {
+  p:last-child {
+    margin-bottom: 0;
+  }
+}

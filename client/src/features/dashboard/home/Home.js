@@ -34,12 +34,12 @@ const Home = () => {
 
     followedTickers = arrayOfFollwedData.map((ticker) => (
       <button
-        className="home-card"
+        className="ticker-button"
         onClick={(e) => {
           handleClick(e, ticker.quote.symbol);
         }}
       >
-        <div className="card">
+        <div className="card home-card">
           <div className="card-body">
             <div className="row">
               <h5 className="card-title">{ticker.quote.companyName}</h5>
@@ -62,9 +62,9 @@ const Home = () => {
   }
 
   return (
-    <div className="container home">
+    <div className="container-fluid home">
       <Search />
-      <div className="row row-cols-md-2">{followedTickers}</div>
+      <div className="row row-cols-md-2 pt-2 pb-2">{followedTickers}</div>
     </div>
   );
 };

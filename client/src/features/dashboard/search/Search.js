@@ -29,7 +29,7 @@ const Search = () => {
   return (
     <div className="container search">
       <div className="row">
-        <h3>Welcome, {username}</h3>
+        <h3 className="welcome">Welcome, {username}!</h3>
       </div>
       <div className="row">
         <div className="col-12">

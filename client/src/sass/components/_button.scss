@@ -1,3 +1,4 @@
+@import "../helpers/variables";
 .button {
   width: 125px;
 }
@@ -5,10 +6,17 @@
 .watch-button {
   background-color: transparent;
   border: none;
-  color: white;
+  color: green;
 }
 
-.home-card {
+.unwatch-button {
   background-color: transparent;
   border: none;
+  color: red;
+}
+
+.ticker-button {
+  background-color: transparent;
+  border: none;
+  color: $primaryText;
 }
