@@ -50,7 +50,7 @@ const SearchResults = () => {
               </h6>
             </div>
           </div>
-          <div className="row mb-2">
+          <div className="row">
             <WatchButton />
           </div>
           <div className="row">
@@ -92,7 +92,7 @@ const SearchResults = () => {
               </h6>
             </div>
           </div>
-          <div className="row mb-2">
+          <div className="row">
             <WatchButton />
           </div>
           <div className="row">
@@ -137,7 +137,7 @@ const SearchResults = () => {
           <div className="container pt-2 news">
             {search.currentTicker && (
               <div className="row">
-                <h3>News</h3>
+                <h3>NEWS</h3>
               </div>
             )}
             <ul>{displayNews}</ul>
