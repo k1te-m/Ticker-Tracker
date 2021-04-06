@@ -22,7 +22,7 @@ const Dashboard = () => {
   if (!search.currentTicker) {
     return (
       <>
-        <div className="container-fluid">
+        <div className="dashboard container-fluid">
           <div className="row">
             <div className="col-2 p-0">
               <Sidebar />
@@ -38,7 +38,7 @@ const Dashboard = () => {
   } else {
     return (
       <>
-        <div className="container-fluid dashboard">
+        <div className="dashboard container-fluid">
           <div className="row">
             <div className="col-2 p-0">
               <Sidebar />
