@@ -1,0 +1,17 @@
+@import "../helpers/variables";
+
+.home {
+  height: 100%;
+  .gain {
+    color: $gain;
+  }
+  .loss {
+    color: $loss;
+  }
+  color: $primaryText;
+}
+
+.home-card {
+  background-color: $topGradient;
+  border: none;
+}

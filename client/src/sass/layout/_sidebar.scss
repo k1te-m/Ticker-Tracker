@@ -1,0 +1,42 @@
+@import "../helpers/variables";
+
+.sidebar {
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  background-color: $menuBar;
+  border-right: 1px solid black;
+  ul {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    list-style: none;
+    box-shadow: none;
+    border: none;
+    padding: 0;
+  }
+  .card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    background-color: $topGradient;
+    color: $gain;
+    i {
+      font-size: 1rem;
+    }
+  }
+  li {
+    padding: 5px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 11px;
+  }
+  .side-symbol {
+    color: $primaryText;
+  }
+}
