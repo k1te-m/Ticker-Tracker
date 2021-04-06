@@ -55,8 +55,8 @@ export const searchSlice = createSlice({
   name: "search",
   initialState,
   reducers: {
-    REMOVE_SEARCH: () => {
-      return { currentTicker: null };
+    REMOVE_SEARCH: (state) => {
+      return { ...state, currentTicker: null };
     },
   },
   extraReducers: {
