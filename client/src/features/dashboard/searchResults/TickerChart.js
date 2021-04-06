@@ -43,13 +43,13 @@ const TickerChart = () => {
               display: true,
               text: "10-Day Historical Stock Price Values",
               fontSize: 12,
-              fontColor: "black",
+              fontColor: "#FFFFFF",
             },
             legend: {
               display: false,
               position: "right",
               labels: {
-                fontColor: "black",
+                fontColor: "#FFFFFF",
                 fontSize: 12,
               },
             },
@@ -57,7 +57,7 @@ const TickerChart = () => {
               yAxes: [
                 {
                   ticks: {
-                    fontColor: "black",
+                    fontColor: "#FFFFFF",
                     fontSize: 8,
                     callback: function (value, index, values) {
                       return "$" + value;
@@ -68,7 +68,7 @@ const TickerChart = () => {
               xAxes: [
                 {
                   ticks: {
-                    fontColor: "black",
+                    fontColor: "#FFFFFF",
                     fontSize: 10,
                   },
                 },
