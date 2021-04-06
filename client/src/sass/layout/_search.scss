@@ -22,6 +22,18 @@
   .week {
     font-size: 10px;
   }
+  .high {
+    color: $gain;
+  }
+  .low {
+    color: $loss;
+  }
+  .gain {
+    color: $gain;
+  }
+  .loss {
+    color: $loss;
+  }
 }
 
 .chart-container {
