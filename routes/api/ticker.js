@@ -35,7 +35,7 @@ router.get("/query/:ticker", async (req, res) => {
 // @access    Private
 router.get("/batchquery/:tickers", async (req, res) => {
   const tickers = req.params.tickers;
-  console.log(baseQueryURL + tickers + batchQuery + process.env.IEX_KEY);
+
   try {
     const response = await axios.get(
       baseQueryURL + tickers + batchQuery + process.env.IEX_KEY
