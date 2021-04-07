@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { selectAuth, loadUser } from "../auth/authSlice";
 import { selectSearch } from "./search/searchSlice";
@@ -32,7 +32,9 @@ const Dashboard = () => {
             </div>
           </div>
         </div>
-        <Footer />
+        <div className="row">
+          <Footer />
+        </div>
       </>
     );
   } else {
