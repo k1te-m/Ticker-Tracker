@@ -24,6 +24,7 @@ const Sidebar = () => {
   let symbolList;
 
   const hanldeClick = (e, symbol) => {
+    window.scrollTo(0, 0);
     e.preventDefault();
     dispatch(setSearch(symbol));
   };
