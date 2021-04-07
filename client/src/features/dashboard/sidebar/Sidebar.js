@@ -19,7 +19,7 @@ const Sidebar = () => {
 
   useEffect(() => {
     dispatch(getFollowedSymbols(id));
-  }, [dispatch]);
+  }, [dispatch, id]);
 
   let symbolList;
 
