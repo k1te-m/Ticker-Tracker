@@ -7,12 +7,12 @@ const Entry = () => {
       <div className="row">
         <div className="col-6">
           <Link to="/register">
-            <button className="button">Sign Up</button>
+            <button className="button btn entry-btn">Sign Up</button>
           </Link>
         </div>
         <div className="col-6">
           <Link to="/login">
-            <button className="button">Login</button>
+            <button className="button btn entry-btn">Login</button>
           </Link>
         </div>
       </div>

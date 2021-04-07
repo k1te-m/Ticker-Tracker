@@ -146,12 +146,12 @@ const SearchResults = () => {
           <div className="row week pb-2">
             <div className="col">
               <span className="high">
-                52 Week High: {formatDollarAmount(week52High)}
+                52-Week High: {formatDollarAmount(week52High)}
               </span>
             </div>
             <div className="col">
               <span className="low">
-                52 Week Low: ${formatDollarAmount(week52Low)}
+                52-Week Low: {formatDollarAmount(week52Low)}
               </span>
             </div>
           </div>

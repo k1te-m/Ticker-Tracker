@@ -59,7 +59,7 @@ const Login = (props) => {
 
   return (
     <>
-      <div className="container">
+      <div className="container login">
         <div className="row">
           <h3>Account Log In</h3>
         </div>
@@ -83,7 +83,10 @@ const Login = (props) => {
               value={password}
               type="password"
             />
-            <button className="button" onClick={handleFormSubmit}>
+            <button
+              className="button btn login-btn mt-3"
+              onClick={handleFormSubmit}
+            >
               Log in
             </button>
           </form>
