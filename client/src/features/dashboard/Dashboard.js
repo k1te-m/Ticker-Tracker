@@ -7,6 +7,7 @@ import Search from "./search/Search";
 import SearchResults from "./searchResults/SearchResults";
 import Sidebar from "./sidebar/Sidebar";
 import Home from "./home/Home";
+import Sticky from "react-stickynode";
 
 const Dashboard = () => {
   const dispatch = useDispatch();
@@ -25,16 +26,16 @@ const Dashboard = () => {
         <div className="dashboard container-fluid">
           <div className="row">
             <div className="col-2 p-0">
-              <Sidebar />
+              <Sticky bottomBoundary="#bottom">
+                <Sidebar />
+              </Sticky>
             </div>
-            <div className="col-10 p-0">
+            <div className="col-10 p-0" id="bottom">
               <Home />
             </div>
           </div>
         </div>
-        <div className="row">
-          <Footer />
-        </div>
+        <Footer />
       </>
     );
   } else {
@@ -43,9 +44,11 @@ const Dashboard = () => {
         <div className="dashboard container-fluid">
           <div className="row">
             <div className="col-2 p-0">
-              <Sidebar />
+              <Sticky bottomBoundary="#bottom">
+                <Sidebar />
+              </Sticky>
             </div>
-            <div className="col-10 p-0">
+            <div className="col-10 p-0" id="bottom">
               <Search />
               <SearchResults />
             </div>
