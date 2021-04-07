@@ -14,7 +14,7 @@ const SearchResults = () => {
     const {
       symbol,
       companyName,
-      latestTime,
+      latestUpdate,
       latestPrice,
       week52High,
       week52Low,
@@ -27,6 +27,27 @@ const SearchResults = () => {
 
     const size = 5;
     const filteredNews = news.slice(0, size);
+
+    const formatDollarAmount = (number) => {
+      return new Intl.NumberFormat("en-US", {
+        style: "currency",
+        currency: "USD",
+      }).format(number);
+    };
+
+    // Formats date to local time and provides day, month, and year
+    const formatDate = (date) => {
+      const dateObj = new Date(date);
+      const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
+      const formattedDate = dateObj.toLocaleString("en-US", {
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit",
+        timeZone: tz,
+      });
+      const formattedTime = formattedDate;
+      return formattedTime;
+    };
 
     displayNews = filteredNews.map((news) => (
       <div className="row">
@@ -50,35 +71,42 @@ const SearchResults = () => {
               </h6>
             </div>
           </div>
-          <div className="row">
-            <WatchButton />
-          </div>
+
           <div className="row">
             <h5 className="latest-price gain">
-              ${latestPrice} <span className="time-stamp">({latestTime})</span>
+              {formatDollarAmount(latestPrice)}{" "}
+              <span className="time-stamp">({formatDate(latestUpdate)})</span>
             </h5>
           </div>
           <div className="row mb-2">
             <div className="col-12 prev-close">
-              Previous Close: ${previousClose}
+              Previous Close: {formatDollarAmount(previousClose)}
             </div>
           </div>
+
           <div className="row mb-1">
             <div className="col-6 dollar-change gain">
-              <i className="fas fa-long-arrow-alt-up" /> ${change} Today
+              <i className="fas fa-long-arrow-alt-up" />{" "}
+              {formatDollarAmount(change)} Today
             </div>
             <div className="col-6 percent-change gain">
-              <i className="fas fa-long-arrow-alt-up" />
-              {changePercent}%
+              <i className="fas fa-long-arrow-alt-up" /> {changePercent}%
             </div>
           </div>
           <div className="row week pb-2">
             <div className="col">
-              <span className="high">52 Week High: ${week52High}</span>
+              <span className="high">
+                52 Week High: {formatDollarAmount(week52High)}
+              </span>
             </div>
             <div className="col">
-              <span className="low">52 Week Low: ${week52Low}</span>
+              <span className="low">
+                52 Week Low: {formatDollarAmount(week52Low)}
+              </span>
             </div>
+          </div>
+          <div className="row">
+            <WatchButton />
           </div>
         </div>
       );
@@ -97,29 +125,34 @@ const SearchResults = () => {
           </div>
           <div className="row">
             <h5 className="latest-price loss">
-              ${latestPrice} <span className="time-stamp">({latestTime})</span>
+              {formatDollarAmount(latestPrice)}
+              <span className="time-stamp">({formatDate(latestUpdate)})</span>
             </h5>
           </div>
           <div className="row mb-2">
             <div className="col-12 prev-close">
-              Previous Close: ${previousClose}
+              Previous Close: {formatDollarAmount(previousClose)}
             </div>
           </div>
           <div className="row mb-1">
             <div className="col-6 dollar-change loss">
-              <i className="fas fa-long-arrow-alt-down" />${change} Today
+              <i className="fas fa-long-arrow-alt-down" />{" "}
+              {formatDollarAmount(change)} Today
             </div>
             <div className="col-6 percent-change loss">
-              <i className="fas fa-long-arrow-alt-down" />
-              {changePercent}%
+              <i className="fas fa-long-arrow-alt-down" /> {changePercent}%
             </div>
           </div>
           <div className="row week pb-2">
             <div className="col">
-              <span className="high">52 Week High: ${week52High}</span>
+              <span className="high">
+                52 Week High: {formatDollarAmount(week52High)}
+              </span>
             </div>
             <div className="col">
-              <span className="low">52 Week Low: ${week52Low}</span>
+              <span className="low">
+                52 Week Low: ${formatDollarAmount(week52Low)}
+              </span>
             </div>
           </div>
         </div>
