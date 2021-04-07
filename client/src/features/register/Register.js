@@ -68,7 +68,7 @@ const Register = (props) => {
 
   return (
     <>
-      <div className="container">
+      <div className="container signup">
         <div className="row">
           <h3>Create your account</h3>
         </div>
@@ -116,7 +116,10 @@ const Register = (props) => {
                 type="password"
               />
             </div>
-            <button className="button" onClick={handleFormSubmit}>
+            <button
+              className="button btn login-btn mt-3"
+              onClick={handleFormSubmit}
+            >
               Submit
             </button>
           </form>
