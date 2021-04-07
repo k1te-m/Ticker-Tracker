@@ -45,8 +45,8 @@ const Sidebar = () => {
   }
 
   return (
-    <div className="container-fluid sidebar">
-      <ul className="list-group pt-2">
+    <div className=" sidebar">
+      <ul className="list-group pt-2 pb-2">
         <li className="list-group-item card mt-2">
           <i className="fas fa-home" onClick={(e) => handleHomeClick(e)} />
         </li>
