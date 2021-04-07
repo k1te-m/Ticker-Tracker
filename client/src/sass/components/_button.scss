@@ -26,3 +26,14 @@
   color: $primaryText;
   border: 1px solid $gain;
 }
+
+.entry-btn {
+  background-color: $topGradient;
+  color: $gain;
+  border: 1px solid $gain;
+}
+.login-btn {
+  background-color: $bottomGradient;
+  border: 1px solid $gain;
+  color: $gain;
+}
