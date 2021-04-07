@@ -48,7 +48,7 @@ const Search = () => {
                 />
               </div>
             </div>
-            <div className="col-12" align="center">
+            <div className="col-12">
               <button onClick={handleFormSubmit} className="search-button btn">
                 Search
               </button>

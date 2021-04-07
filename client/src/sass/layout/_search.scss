@@ -1,8 +1,6 @@
 .search {
-  .search-term {
-    width: 70%;
-  }
   color: $primaryText;
+  width: 100%;
 }
 
 .stock-info {
@@ -13,13 +11,14 @@
   color: $primaryText;
   .latest-price {
     font-size: 25px;
+    font-weight: bold;
   }
   .time-stamp {
     font-size: 10px;
     color: $secondaryText;
   }
   .week {
-    font-size: 10px;
+    font-size: 11px;
   }
   .high {
     color: $gain;

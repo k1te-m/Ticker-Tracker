@@ -13,7 +13,6 @@ export const setSearch = createAsyncThunk(
   "search/setSearch",
   async (query, thunkAPI) => {
     const response = await API.searchTicker(query);
-
     return response.data;
   }
 );

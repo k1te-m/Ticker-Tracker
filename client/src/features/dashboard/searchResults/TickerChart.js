@@ -8,28 +8,68 @@ const TickerChart = () => {
   const { currentTicker } = search;
 
   if (currentTicker != null) {
-    const dates = currentTicker.chart.map((dayData) => {
+    let dates = currentTicker.chart.map((dayData) => {
       return dayData.label;
     });
 
-    const closingPrices = currentTicker.chart.map((dayData) => {
+    let closingPrices = currentTicker.chart.map((dayData) => {
       return dayData.close;
     });
 
-    const state = {
-      labels: dates.reverse(),
-      datasets: [
-        {
-          label: "Close",
-          fill: true,
-          lineTension: 0.5,
-          backgroundColor: "rgba(75,181,67,.5)",
-          borderColor: "rgba(0,0,0,1)",
-          borderWidth: 2,
-          data: closingPrices.reverse(),
-        },
-      ],
+    // Formats date to local time and provides day, month, and year
+    const formatDate = (date) => {
+      const dateObj = new Date(date);
+      const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
+      const formattedDate = dateObj.toLocaleString("en-US", {
+        month: "short",
+        day: "2-digit",
+        year: "2-digit",
+        timeZone: tz,
+      });
+      const formattedTime = formattedDate;
+      return formattedTime;
     };
+
+    console.log(formatDate(currentTicker.quote.latestUpdate));
+
+    dates.unshift(formatDate(currentTicker.quote.latestUpdate));
+    console.log(dates);
+    closingPrices.unshift(currentTicker.quote.latestPrice);
+
+    console.log(closingPrices);
+    let state;
+
+    if (closingPrices[0] > closingPrices[closingPrices.length - 1]) {
+      state = {
+        labels: dates.reverse(),
+        datasets: [
+          {
+            label: "$ Value",
+            fill: true,
+            lineTension: 0.5,
+            backgroundColor: "#79ea86",
+            borderColor: "rgba(0,0,0,1)",
+            borderWidth: 2,
+            data: closingPrices.reverse(),
+          },
+        ],
+      };
+    } else if (closingPrices[0] < closingPrices[1]) {
+      state = {
+        labels: dates.reverse(),
+        datasets: [
+          {
+            label: "Close",
+            fill: true,
+            lineTension: 0.5,
+            backgroundColor: "#e75757",
+            borderColor: "rgba(0,0,0,1)",
+            borderWidth: 2,
+            data: closingPrices.reverse(),
+          },
+        ],
+      };
+    }
 
     return (
       <div className="container chart-container">
@@ -41,7 +81,7 @@ const TickerChart = () => {
             maintainAspectRatio: false,
             title: {
               display: true,
-              text: "10-Day Historical Stock Price Values",
+              text: "10-Day+ Historical Stock Price Values",
               fontSize: 12,
               fontColor: "#FFFFFF",
             },

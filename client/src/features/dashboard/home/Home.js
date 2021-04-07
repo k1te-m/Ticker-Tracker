@@ -18,6 +18,13 @@ const Home = () => {
     }
   }, [dispatch, search.userFollowedSymbols]);
 
+  const formatDollarAmount = (number) => {
+    return new Intl.NumberFormat("en-US", {
+      style: "currency",
+      currency: "USD",
+    }).format(number);
+  };
+
   let followedTickers;
 
   if (search.userFollowedData) {
@@ -49,20 +56,20 @@ const Home = () => {
                   </h5>
                 </div>
                 <div className="row">
-                  <h6 className="card-text gain">
-                    ${ticker.quote.latestPrice}
+                  <h6 className="card-text price gain mb-1">
+                    {formatDollarAmount(ticker.quote.latestPrice)}
                   </h6>
                 </div>
                 <div className="row">
                   <div className="col-7">
                     <span className="card-text gain">
-                      <i className="fas fa-long-arrow-alt-up" /> $
-                      {ticker.quote.change} Today
+                      <i className="fas fa-long-arrow-alt-up" />{" "}
+                      {formatDollarAmount(ticker.quote.change)} Today
                     </span>
                   </div>
                   <div className="col-5">
                     <span className="card-text gain">
-                      <i className="fas fa-long-arrow-alt-up" />
+                      <i className="fas fa-long-arrow-alt-up" />{" "}
                       {ticker.quote.changePercent}%
                     </span>
                   </div>
@@ -87,20 +94,20 @@ const Home = () => {
                   </h5>
                 </div>
                 <div className="row">
-                  <h6 className="card-text loss">
-                    ${ticker.quote.latestPrice}
+                  <h6 className="card-text price loss mb-1">
+                    {formatDollarAmount(ticker.quote.latestPrice)}
                   </h6>
                 </div>
                 <div className="row">
                   <div className="col-7">
                     <span className="card-text loss">
-                      <i className="fas fa-long-arrow-alt-down" /> $
-                      {ticker.quote.change} Today
+                      <i className="fas fa-long-arrow-alt-down" />{" "}
+                      {formatDollarAmount(ticker.quote.change)} Today
                     </span>
                   </div>
                   <div className="col-5">
                     <span className="card-text loss">
-                      <i className="fas fa-long-arrow-alt-down" />
+                      <i className="fas fa-long-arrow-alt-down" />{" "}
                       {ticker.quote.changePercent}%
                     </span>
                   </div>
@@ -115,7 +122,10 @@ const Home = () => {
 
   return (
     <div className="container-fluid home">
-      <Search />
+      <div className="row">
+        <Search />
+      </div>
+
       <h5 className="mt-3">
         FOLLOWED TICKERS <i className="fas fa-chart-line" />
       </h5>
