@@ -5,6 +5,9 @@ import {
   selectSearch,
   getFollowedData,
   setSearch,
+  SORT_GAINERS,
+  SORT_ALPHA,
+  SORT_LOSERS,
 } from "../search/searchSlice";
 
 const Home = () => {
@@ -26,9 +29,10 @@ const Home = () => {
   };
 
   let followedTickers;
+  let sortButtons;
 
   if (search.userFollowedData) {
-    const arrayOfFollwedData = Object.keys(search.userFollowedData).map(
+    let arrayOfFollwedData = Object.keys(search.userFollowedData).map(
       (ticker) => {
         return search.userFollowedData[ticker];
       }
@@ -39,7 +43,47 @@ const Home = () => {
       dispatch(setSearch(ticker));
     };
 
-    followedTickers = arrayOfFollwedData.map((ticker) => {
+    const handleSort = (e, sort) => {
+      e.preventDefault();
+      switch (sort) {
+        case "gainers":
+          dispatch(SORT_GAINERS());
+          break;
+        case "losers":
+          dispatch(SORT_LOSERS());
+          break;
+        case "alpha":
+          dispatch(SORT_ALPHA());
+          break;
+      }
+    };
+
+    sortButtons = (
+      <>
+        <button
+          onClick={(e) => handleSort(e, "alpha")}
+          className="button btn sort-btn m-1"
+        >
+          ALPHA.
+        </button>
+
+        <button
+          onClick={(e) => handleSort(e, "gainers")}
+          className="button btn sort-btn m-1"
+        >
+          GAINERS
+        </button>
+
+        <button
+          onClick={(e) => handleSort(e, "losers")}
+          className="button btn sort-btn m-1"
+        >
+          LOSERS
+        </button>
+      </>
+    );
+
+    followedTickers = search.userFollowedData.map((ticker) => {
       if (ticker.quote.change >= 0) {
         return (
           <button
@@ -129,6 +173,14 @@ const Home = () => {
       <h5 className="mt-3">
         FOLLOWED TICKERS <i className="fas fa-chart-line" />
       </h5>
+
+      <div className="row">
+        <span className="secondary ul pb-2">Click to Sort</span>
+      </div>
+      <div className="row row-cols-3 pb-2 justify-content-center">
+        {sortButtons}
+      </div>
+      <span className="secondary">(Tap for more info)</span>
       <div className="row row-cols-md-2 pt-2 pb-2">{followedTickers}</div>
     </div>
   );
