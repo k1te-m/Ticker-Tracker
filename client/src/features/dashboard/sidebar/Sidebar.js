@@ -35,7 +35,9 @@ const Sidebar = () => {
   };
 
   if (userFollowedSymbols) {
-    symbolList = userFollowedSymbols.map((symbol) => (
+    console.log(userFollowedSymbols.slice().sort());
+    const sortedUserSymbols = userFollowedSymbols.slice().sort();
+    symbolList = sortedUserSymbols.map((symbol) => (
       <li className="list-group-item card mt-2">
         <span className="side-symbol" onClick={(e) => hanldeClick(e, symbol)}>
           {symbol}
