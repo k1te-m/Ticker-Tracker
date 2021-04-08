@@ -13,6 +13,12 @@
     font-size: 25px;
   }
   color: $primaryText;
+  .fa-chart-line {
+    color: $gain;
+  }
+  .ul {
+    text-decoration: underline;
+  }
 }
 
 .home-card {
