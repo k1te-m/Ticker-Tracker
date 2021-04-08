@@ -46,7 +46,16 @@ export const getFollowedData = createAsyncThunk(
   "search/getFollowedData",
   async (tickers, thunkAPI) => {
     const response = await API.getFollowedInfo(tickers);
-    return response.data;
+
+    let arrayOfFollwedData = Object.keys(response.data).map((ticker) => {
+      return response.data[ticker];
+    });
+
+    arrayOfFollwedData.sort((a, b) =>
+      a.quote.companyName > b.quote.companyName ? 1 : -1
+    );
+
+    return arrayOfFollwedData;
   }
 );
 
@@ -56,6 +65,21 @@ export const searchSlice = createSlice({
   reducers: {
     REMOVE_SEARCH: (state) => {
       return { ...state, currentTicker: null };
+    },
+    SORT_GAINERS: (state) => {
+      state.userFollowedData.sort((a, b) =>
+        a.quote.changePercent < b.quote.changePercent ? 1 : -1
+      );
+    },
+    SORT_LOSERS: (state) => {
+      state.userFollowedData.sort((a, b) =>
+        a.quote.changePercent > b.quote.changePercent ? 1 : -1
+      );
+    },
+    SORT_ALPHA: (state) => {
+      state.userFollowedData.sort((a, b) =>
+        a.quote.companyName > b.quote.companyName ? 1 : -1
+      );
     },
   },
   extraReducers: {
@@ -117,7 +141,12 @@ export const searchSlice = createSlice({
   },
 });
 
-export const { REMOVE_SEARCH } = searchSlice.actions;
+export const {
+  REMOVE_SEARCH,
+  SORT_GAINERS,
+  SORT_ALPHA,
+  SORT_LOSERS,
+} = searchSlice.actions;
 
 // Selectors
 export const selectSearch = (state) => state.search;
