@@ -30,13 +30,10 @@ const TickerChart = () => {
       return formattedTime;
     };
 
-    console.log(formatDate(currentTicker.quote.latestUpdate));
-
     dates.unshift(formatDate(currentTicker.quote.latestUpdate));
-    console.log(dates);
+
     closingPrices.unshift(currentTicker.quote.latestPrice);
 
-    console.log(closingPrices);
     let state;
 
     if (closingPrices[0] > closingPrices[closingPrices.length - 1]) {
