@@ -1,6 +1,9 @@
 @import "../helpers/variables";
 .button {
-  width: 125px;
+  background-color: $topGradient;
+  color: $primaryText;
+  border: 1px solid $gain;
+  text-align: center;
 }
 
 .watch-button {
@@ -36,4 +39,8 @@
   background-color: $bottomGradient;
   border: 1px solid $gain;
   color: $gain;
+}
+.sort-btn {
+  width: 97px;
+  text-align: center;
 }
