@@ -6,3 +6,12 @@ $primaryText: #ffffff;
 $secondaryText: #b3b3b3;
 $gain: #79ea86;
 $loss: #e75757;
+
+$breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px,
+);
