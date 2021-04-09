@@ -51,7 +51,7 @@ const SearchResults = () => {
 
     displayNews = filteredNews.map((news) => (
       <div className="row">
-        <li>
+        <li key={news.url}>
           <a href={news.url} target="_blank" rel="noreferrer">
             <div>
               <span>{news.headline}</span>
@@ -125,7 +125,7 @@ const SearchResults = () => {
           </div>
           <div className="row">
             <h5 className="latest-price loss">
-              {formatDollarAmount(latestPrice)}
+              {formatDollarAmount(latestPrice)}{" "}
               <span className="time-stamp">({formatDate(latestUpdate)})</span>
             </h5>
           </div>
