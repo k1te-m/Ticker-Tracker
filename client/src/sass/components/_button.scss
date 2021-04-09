@@ -1,4 +1,6 @@
 @import "../helpers/variables";
+@import "../helpers//mixins";
+
 .button {
   background-color: $topGradient;
   color: $primaryText;
@@ -43,4 +45,30 @@
 .sort-btn {
   width: 97px;
   text-align: center;
+  font-size: 14px;
+}
+
+.logout-btn {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  i {
+    color: $loss;
+  }
+}
+
+@include keyframes(pulse) {
+  from {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.85);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+.btn:hover {
+  @include animation("pulse 1s infinite");
 }

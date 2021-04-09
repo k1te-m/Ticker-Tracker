@@ -4,7 +4,7 @@
   padding: 0;
   margin: 0;
   background-color: $menuBar;
-  border-right: 1px solid black;
+  border-right: 1px solid $topGradient;
   ul {
     display: flex;
     align-items: center;
@@ -14,6 +14,19 @@
     border: none;
     padding: 0;
   }
+
+  @include keyframes(pulse) {
+    from {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(0.85);
+    }
+    to {
+      transform: scale(1);
+    }
+  }
+
   .card {
     display: flex;
     align-items: center;
@@ -22,11 +35,17 @@
     width: 40px;
     border-radius: 50%;
     background-color: $topGradient;
+    border: 0.1px solid $gain;
     color: $gain;
     i {
       font-size: 1rem;
     }
   }
+
+  .card:hover {
+    @include animation("pulse 1s infinite");
+  }
+
   li {
     padding: 5px 10px;
     display: flex;

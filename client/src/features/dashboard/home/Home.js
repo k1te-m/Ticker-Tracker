@@ -32,12 +32,6 @@ const Home = () => {
   let sortButtons;
 
   if (search.userFollowedData) {
-    let arrayOfFollwedData = Object.keys(search.userFollowedData).map(
-      (ticker) => {
-        return search.userFollowedData[ticker];
-      }
-    );
-
     const handleClick = (e, ticker) => {
       e.preventDefault();
       dispatch(setSearch(ticker));
@@ -55,6 +49,8 @@ const Home = () => {
         case "alpha":
           dispatch(SORT_ALPHA());
           break;
+        default:
+          break;
       }
     };
 
@@ -64,21 +60,21 @@ const Home = () => {
           onClick={(e) => handleSort(e, "alpha")}
           className="button btn sort-btn m-1"
         >
-          ALPHA.
+          <i className="fas fa-sort-alpha-down secondary" /> ALPHA.
         </button>
 
         <button
           onClick={(e) => handleSort(e, "gainers")}
           className="button btn sort-btn m-1"
         >
-          GAINERS
+          <i className="fas fa-long-arrow-alt-up gain" /> GAINERS
         </button>
 
         <button
           onClick={(e) => handleSort(e, "losers")}
           className="button btn sort-btn m-1"
         >
-          LOSERS
+          <i className="fas fa-long-arrow-alt-down loss" /> LOSERS
         </button>
       </>
     );
@@ -160,6 +156,8 @@ const Home = () => {
             </div>
           </button>
         );
+      } else {
+        return null;
       }
     });
   }

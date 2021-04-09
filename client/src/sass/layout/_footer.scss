@@ -1,9 +1,8 @@
 .footer {
   text-align: center;
-  border-top: 1px solid black;
+  border-top: 1px solid $topGradient;
   background-color: $menuBar;
   color: $secondaryText;
-  height: 125px;
   i {
     font-size: 1.5rem;
   }
