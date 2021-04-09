@@ -37,7 +37,7 @@ const Sidebar = () => {
   if (userFollowedSymbols) {
     const sortedUserSymbols = userFollowedSymbols.slice().sort();
     symbolList = sortedUserSymbols.map((symbol) => (
-      <li className="list-group-item card mt-2">
+      <li className="list-group-item card mt-2" key={symbol}>
         <span className="side-symbol" onClick={(e) => hanldeClick(e, symbol)}>
           {symbol}
         </span>
@@ -48,7 +48,7 @@ const Sidebar = () => {
   return (
     <div className=" sidebar">
       <ul className="list-group pt-2 pb-2">
-        <li className="list-group-item card mt-2">
+        <li className="list-group-item card">
           <i className="fas fa-home" onClick={(e) => handleHomeClick(e)} />
         </li>
         {symbolList}
