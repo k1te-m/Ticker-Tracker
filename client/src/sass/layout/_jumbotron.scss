@@ -1,12 +1,54 @@
+@import "../helpers/mixins";
+
 .jumbotron {
   background-image: url("../../images/markets.jpg");
   background-size: cover;
-  background-position: top;
+  background-position: center;
+  border-bottom: 5px solid $gain;
   height: 500px;
   .welcome {
     color: white;
-    position: relative;
-    left: 65px;
-    top: 50px;
+    text-align: right;
+    font-weight: bold;
+    @include respond-above(md) {
+      padding-right: 3rem;
+    }
+    @include respond-above(lg) {
+      padding-right: 7rem;
+    }
+    @include respond-above(xl) {
+      padding-right: 10rem;
+    }
+  }
+  .gain {
+    color: $gain;
+    font-weight: bolder;
+  }
+  .logo {
+    width: 55px;
+    height: 55px;
+  }
+  .short-desc {
+    color: $primaryText;
+    text-align: left;
+    width: 70%;
+    position: absolute;
+    top: 48%;
+    left: 35%;
+    transform: translate(-50%, -50%);
+    @include respond-above(md) {
+      width: 50%;
+      left: 25%;
+    }
+    @include respond-above(lg) {
+      width: 40%;
+      left: 20%;
+      top: 50%;
+    }
+    @include respond-above(xl) {
+      width: 25%;
+      top: 45%;
+      left: 15%;
+    }
   }
 }

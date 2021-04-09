@@ -2,7 +2,7 @@
 @import "../helpers//mixins";
 
 .button {
-  background-color: $topGradient;
+  background-color: $bottomGradient;
   color: $primaryText;
   border: 1px solid $gain;
   text-align: center;
@@ -27,20 +27,20 @@
 }
 
 .search-button {
-  background-color: $topGradient;
+  background-color: $bottomGradient;
   color: $primaryText;
   border: 1px solid $gain;
 }
 
 .entry-btn {
-  background-color: $topGradient;
-  color: $gain;
+  background-color: $bottomGradient;
+  color: $primaryText;
   border: 1px solid $gain;
 }
 .login-btn {
   background-color: $bottomGradient;
   border: 1px solid $gain;
-  color: $gain;
+  color: $primaryText;
 }
 .sort-btn {
   width: 97px;

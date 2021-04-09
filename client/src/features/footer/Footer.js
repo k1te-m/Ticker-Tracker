@@ -10,7 +10,7 @@ const Footer = () => {
           </a>
         </div>
         <div className="row">
-          <span>Ticker Tracker © 2021</span>
+          <span>ESPY © 2021</span>
         </div>
         <div className="row">
           <a
