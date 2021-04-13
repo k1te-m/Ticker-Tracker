@@ -1,4 +1,13 @@
+@import "../helpers/mixins";
+
 .description {
   text-align: center;
   color: $primaryText;
+  @include respond-above(md) {
+    margin-bottom: 40px;
+  }
+  @include respond-above(lg) {
+    margin-bottom: 310px;
+    font-size: 25px;
+  }
 }
