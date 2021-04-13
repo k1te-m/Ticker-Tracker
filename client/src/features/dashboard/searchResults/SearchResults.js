@@ -25,7 +25,7 @@ const SearchResults = () => {
 
     const { news } = search.currentTicker;
 
-    const size = 5;
+    const size = 10;
     const filteredNews = news.slice(0, size);
 
     const formatDollarAmount = (number) => {
@@ -50,15 +50,16 @@ const SearchResults = () => {
     };
 
     displayNews = filteredNews.map((news) => (
-      <div className="row">
-        <li key={news.url}>
-          <a href={news.url} target="_blank" rel="noreferrer">
-            <div>
-              <span>{news.headline}</span>
-            </div>
-          </a>
-        </li>
-      </div>
+      <li key={news.url}>
+        <span className="fa-li">
+          <i className="fas fa-newspaper" />
+        </span>
+        <a href={news.url} target="_blank" rel="noreferrer">
+          <div>
+            <span>{news.headline}</span>
+          </div>
+        </a>
+      </li>
     ));
 
     if (change >= 0) {
@@ -66,7 +67,7 @@ const SearchResults = () => {
         <div className="container stock-info my-auto">
           <div className="row">
             <div className="col-12">
-              <h6>
+              <h6 className="mt-1 company-name">
                 {companyName}, ({symbol})
               </h6>
             </div>
@@ -105,7 +106,7 @@ const SearchResults = () => {
               </span>
             </div>
           </div>
-          <div className="row">
+          <div className="row mb-1">
             <WatchButton />
           </div>
         </div>
@@ -115,14 +116,12 @@ const SearchResults = () => {
         <div className="container stock-info my-auto">
           <div className="row">
             <div className="col-12">
-              <h6>
+              <h6 className="mt-1 company-name">
                 {companyName}, ({symbol})
               </h6>
             </div>
           </div>
-          <div className="row">
-            <WatchButton />
-          </div>
+
           <div className="row">
             <h5 className="latest-price loss">
               {formatDollarAmount(latestPrice)}{" "}
@@ -154,6 +153,9 @@ const SearchResults = () => {
                 52-Week Low: {formatDollarAmount(week52Low)}
               </span>
             </div>
+            <div className="row mb-1">
+              <WatchButton />
+            </div>
           </div>
         </div>
       );
@@ -161,7 +163,7 @@ const SearchResults = () => {
   }
 
   return (
-    <div className="container-fluid pt-2">
+    <div className="container-fluid mt-3 pt-2">
       <div className="row">
         <div className="col-12">{tickerCard}</div>
       </div>
@@ -170,13 +172,13 @@ const SearchResults = () => {
       </div>
       <div className="row">
         <div className="col-12">
-          <div className="container pt-2 news">
+          <div className="container pt-4 news">
             {search.currentTicker && (
               <div className="row">
                 <h3>NEWS</h3>
               </div>
             )}
-            <ul>{displayNews}</ul>
+            <ul className="fa-ul">{displayNews}</ul>
           </div>
         </div>
       </div>
