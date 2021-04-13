@@ -68,6 +68,7 @@ const Register = (props) => {
 
   return (
     <>
+      <img src="../logo192.png" className="up-logo mt-2" />
       <div className="container signup">
         <div className="row">
           <h3>Create your account</h3>
@@ -117,7 +118,7 @@ const Register = (props) => {
               />
             </div>
             <button
-              className="button btn login-btn mt-3"
+              className="button btn login-btn mt-3 mb-3"
               onClick={handleFormSubmit}
             >
               Submit
