@@ -91,7 +91,7 @@ const Home = () => {
             <div className="card home-card">
               <div className="card-body">
                 <div className="row">
-                  <h5 className="card-title">
+                  <h5 className="card-title company-name">
                     {ticker.quote.companyName}, ({ticker.quote.symbol})
                   </h5>
                 </div>
@@ -102,13 +102,13 @@ const Home = () => {
                 </div>
                 <div className="row">
                   <div className="col-7">
-                    <span className="card-text gain">
+                    <span className="card-text gain change">
                       <i className="fas fa-long-arrow-alt-up" />{" "}
                       {formatDollarAmount(ticker.quote.change)} Today
                     </span>
                   </div>
                   <div className="col-5">
-                    <span className="card-text gain">
+                    <span className="card-text gain change">
                       <i className="fas fa-long-arrow-alt-up" />{" "}
                       {ticker.quote.changePercent}%
                     </span>
@@ -129,7 +129,7 @@ const Home = () => {
             <div className="card home-card">
               <div className="card-body">
                 <div className="row">
-                  <h5 className="card-title">
+                  <h5 className="card-title company-name">
                     {ticker.quote.companyName}, ({ticker.quote.symbol})
                   </h5>
                 </div>
@@ -141,12 +141,12 @@ const Home = () => {
                 <div className="row">
                   <div className="col-7">
                     <span className="card-text loss">
-                      <i className="fas fa-long-arrow-alt-down" />{" "}
+                      <i className="fas fa-long-arrow-alt-down change" />{" "}
                       {formatDollarAmount(ticker.quote.change)} Today
                     </span>
                   </div>
                   <div className="col-5">
-                    <span className="card-text loss">
+                    <span className="card-text loss change">
                       <i className="fas fa-long-arrow-alt-down" />{" "}
                       {ticker.quote.changePercent}%
                     </span>
@@ -179,7 +179,9 @@ const Home = () => {
         {sortButtons}
       </div>
       <span className="secondary">(Tap for more info)</span>
-      <div className="row row-cols-md-2 pt-2 pb-2">{followedTickers}</div>
+      <div className="row row-cols-md-2 pt-2 pb-2 followed-tickers">
+        {followedTickers}
+      </div>
     </div>
   );
 };
