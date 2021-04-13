@@ -14,7 +14,7 @@
       padding-right: 3rem;
     }
     @include respond-above(lg) {
-      padding-right: 7rem;
+      padding-right: 6rem;
     }
     @include respond-above(xl) {
       padding-right: 10rem;
@@ -33,22 +33,33 @@
     text-align: left;
     width: 70%;
     position: absolute;
-    top: 48%;
+    top: 49.5%;
     left: 35%;
     transform: translate(-50%, -50%);
+
     @include respond-above(md) {
       width: 50%;
       left: 25%;
+      top: 42%;
+      @include orientation(landscape) {
+        top: 110%;
+      }
     }
     @include respond-above(lg) {
       width: 40%;
       left: 20%;
-      top: 50%;
+      top: 30%;
+      @include orientation(landscape) {
+        top: 55%;
+      }
     }
     @include respond-above(xl) {
       width: 25%;
       top: 45%;
       left: 15%;
+      @include orientation(landscape) {
+        top: 40%;
+      }
     }
   }
 }

@@ -59,6 +59,7 @@ const Login = (props) => {
 
   return (
     <>
+      <img src="../logo192.png" className="up-logo mt-2" />
       <div className="container login">
         <div className="row">
           <h3>Account Log In</h3>
@@ -84,7 +85,7 @@ const Login = (props) => {
               type="password"
             />
             <button
-              className="button btn login-btn mt-3"
+              className="button btn login-btn mt-3 mb-3"
               onClick={handleFormSubmit}
             >
               Log in
