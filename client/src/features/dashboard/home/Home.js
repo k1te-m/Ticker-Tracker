@@ -156,6 +156,8 @@ const Home = () => {
             </div>
           </button>
         );
+      } else if (search.isLoading) {
+        return <i className="fas fa-spinner" />;
       } else {
         return null;
       }
