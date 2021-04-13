@@ -1,4 +1,5 @@
 @import "../helpers/variables";
+@import "../helpers/mixins";
 
 .sidebar {
   padding: 0;
@@ -40,6 +41,14 @@
     i {
       font-size: 1rem;
     }
+    @include respond-above(md) {
+      height: 50px;
+      width: 50px;
+      font-size: 13px;
+      i {
+        font-size: 1.5rem;
+      }
+    }
   }
 
   .card:hover {
@@ -56,5 +65,12 @@
   }
   .side-symbol {
     color: $primaryText;
+  }
+
+  @include respond-above(md) {
+    height: 1200px;
+  }
+  @include respond-above(lg) {
+    height: 1400px;
   }
 }

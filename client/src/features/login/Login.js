@@ -54,6 +54,11 @@ const Login = (props) => {
       );
     } else {
       dispatch(loginUser({ email, password }));
+      if (auth.error === "Invalid credentials.") {
+        dispatch(
+          SET_ALERT({ message: "Invalid credentials.", type: "danger" })
+        );
+      }
     }
   };
 

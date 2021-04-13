@@ -69,7 +69,7 @@ const TickerChart = () => {
     }
 
     return (
-      <div className="container chart-container">
+      <div className="container chart-container mt-3">
         <Line
           data={state}
           width={100}
@@ -95,7 +95,7 @@ const TickerChart = () => {
                 {
                   ticks: {
                     fontColor: "#FFFFFF",
-                    fontSize: 8,
+                    fontSize: 10,
                     callback: function (value, index, values) {
                       return "$" + value;
                     },

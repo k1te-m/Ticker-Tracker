@@ -24,6 +24,8 @@
   background-color: transparent;
   border: none;
   color: $primaryText;
+  margin: auto;
+  margin-bottom: 15px;
 }
 
 .search-button {
@@ -43,9 +45,17 @@
   color: $primaryText;
 }
 .sort-btn {
-  width: 97px;
+  width: 100px;
   text-align: center;
   font-size: 14px;
+  @include respond-above(md) {
+    width: 170px;
+    font-size: 16px;
+  }
+  @include respond-above(lg) {
+    width: 225px;
+    font-size: 18px;
+  }
 }
 
 .logout-btn {

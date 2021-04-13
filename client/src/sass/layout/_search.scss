@@ -6,9 +6,17 @@
 .stock-info {
   text-align: center;
   border: 1px solid black;
-  border-radius: 5px;
+  border-radius: 15px;
   background-color: $topGradient;
   color: $primaryText;
+  margin: auto;
+  padding: auto;
+  @include respond-above(md) {
+    width: 400px;
+  }
+  @include respond-above(lg) {
+    width: 600px;
+  }
   .latest-price {
     font-size: 25px;
     font-weight: bold;
@@ -19,6 +27,12 @@
   }
   .week {
     font-size: 10px;
+    @include respond-above(md) {
+      font-size: 14px;
+    }
+    @include respond-above(lg) {
+      font-size: 16px;
+    }
   }
   .high {
     color: $gain;
@@ -31,6 +45,34 @@
   }
   .loss {
     color: $loss;
+  }
+  .dollar-change {
+    font-size: 10px;
+    @include respond-above(md) {
+      font-size: 14px;
+    }
+    @include respond-above(lg) {
+      font-size: 16px;
+    }
+  }
+  .percent-change {
+    font-size: 10px;
+    @include respond-above(md) {
+      font-size: 14px;
+    }
+    @include respond-above(lg) {
+      font-size: 16px;
+    }
+  }
+  .company-name {
+    font-weight: bold;
+    font-size: 20px;
+    @include respond-above(md) {
+      font-size: 25px;
+    }
+    @include respond-above(lg) {
+      font-size: 30px;
+    }
   }
 }
 
@@ -50,5 +92,11 @@
 .news {
   p:last-child {
     margin-bottom: 0;
+  }
+  ul {
+    list-style: none;
+    i {
+      color: $gain;
+    }
   }
 }
