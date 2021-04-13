@@ -11,6 +11,9 @@
   .price {
     font-weight: bold;
     font-size: 25px;
+    @include respond-above(md) {
+      font-size: 30px;
+    }
   }
   color: $primaryText;
   .fa-chart-line {
@@ -21,10 +24,21 @@
   }
   .change {
     font-size: 14px;
+    @include respond-above(md) {
+      font-size: 16px;
+    }
   }
 }
 
 .home-card {
   background-color: $topGradient;
   border: none;
+  height: 155px;
+  width: auto;
+  padding: auto;
+  margin: auto;
+  justify-content: center;
+  @include respond-above(xl) {
+    width: 500px;
+  }
 }
