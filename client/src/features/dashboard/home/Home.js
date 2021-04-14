@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import Loading from "../../loading/Loading";
 import Search from "../search/Search";
 import {
   selectSearch,
@@ -156,36 +157,59 @@ const Home = () => {
             </div>
           </button>
         );
-      } else if (search.isLoading) {
-        return <i className="fas fa-spinner" />;
       } else {
         return null;
       }
     });
   }
 
-  return (
-    <div className="container-fluid home">
-      <div className="row">
-        <Search />
-      </div>
+  if (search.isLoading) {
+    return (
+      <div className="container-fluid home">
+        <div className="row">
+          <Search />
+        </div>
 
-      <h5 className="mt-3">
-        FOLLOWED TICKERS <i className="fas fa-chart-line" />
-      </h5>
+        <h5 className="mt-3">
+          FOLLOWED TICKERS <i className="fas fa-chart-line" />
+        </h5>
 
-      <div className="row">
-        <span className="secondary ul pb-2">Click to Sort</span>
+        <div className="row">
+          <span className="secondary ul pb-2">Click to Sort</span>
+        </div>
+        <div className="row row-cols-3 pb-2 justify-content-center">
+          {sortButtons}
+        </div>
+        <span className="secondary">(Tap for more info)</span>
+        <div className="row load mt-5">
+          <Loading />
+        </div>
       </div>
-      <div className="row row-cols-3 pb-2 justify-content-center">
-        {sortButtons}
+    );
+  } else {
+    return (
+      <div className="container-fluid home">
+        <div className="row">
+          <Search />
+        </div>
+
+        <h5 className="mt-3">
+          FOLLOWED TICKERS <i className="fas fa-chart-line" />
+        </h5>
+
+        <div className="row">
+          <span className="secondary ul pb-2">Click to Sort</span>
+        </div>
+        <div className="row row-cols-3 pb-2 justify-content-center">
+          {sortButtons}
+        </div>
+        <span className="secondary">(Tap for more info)</span>
+        <div className="row row-cols-md-2 pt-2 pb-2 followed-tickers">
+          {followedTickers}
+        </div>
       </div>
-      <span className="secondary">(Tap for more info)</span>
-      <div className="row row-cols-md-2 pt-2 pb-2 followed-tickers">
-        {followedTickers}
-      </div>
-    </div>
-  );
+    );
+  }
 };
 
 export default Home;
