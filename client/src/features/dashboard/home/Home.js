@@ -181,7 +181,7 @@ const Home = () => {
           {sortButtons}
         </div>
         <span className="secondary">(Tap for more info)</span>
-        <div className="row load mt-5">
+        <div className="row load pt-2 pb-2 justify-content-center">
           <Loading />
         </div>
       </div>
