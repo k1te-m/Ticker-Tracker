@@ -7,7 +7,7 @@ const TickerChart = () => {
   const search = useSelector(selectSearch);
   const { currentTicker } = search;
 
-  if (currentTicker != null) {
+  if (currentTicker) {
     let dates = currentTicker.chart.map((dayData) => {
       return dayData.label;
     });
@@ -34,7 +34,20 @@ const TickerChart = () => {
 
     closingPrices.unshift(currentTicker.quote.latestPrice);
 
-    let state;
+    let state = {
+      labels: dates.reverse(),
+      datasets: [
+        {
+          label: "$ Value",
+          fill: true,
+          lineTension: 0.5,
+          backgroundColor: "#79ea86",
+          borderColor: "rgba(0,0,0,1)",
+          borderWidth: 2,
+          data: closingPrices.reverse(),
+        },
+      ],
+    };
 
     if (closingPrices[0] > closingPrices[closingPrices.length - 1]) {
       state = {
@@ -56,7 +69,7 @@ const TickerChart = () => {
         labels: dates.reverse(),
         datasets: [
           {
-            label: "Close",
+            label: "$ Value",
             fill: true,
             lineTension: 0.5,
             backgroundColor: "#e75757",
