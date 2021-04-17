@@ -52,6 +52,9 @@
       @include orientation(landscape) {
         top: 55%;
       }
+      @include orientation(portrait) {
+        top: 23%;
+      }
     }
     @include respond-above(xl) {
       width: 25%;

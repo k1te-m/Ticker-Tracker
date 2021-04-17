@@ -17,6 +17,9 @@
   @include respond-above(lg) {
     margin-top: 150px;
     margin-bottom: 825px;
+    @include orientation(portrait) {
+      margin-bottom: 1225px;
+    }
   }
   @include respond-above(xl) {
     margin-bottom: 400px;

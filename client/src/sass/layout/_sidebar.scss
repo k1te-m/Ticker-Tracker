@@ -72,5 +72,8 @@
   }
   @include respond-above(lg) {
     height: 1400px;
+    @include orientation(portrait) {
+      height: 1700px;
+    }
   }
 }
