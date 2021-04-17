@@ -10,6 +10,7 @@ import {
   SORT_ALPHA,
   SORT_LOSERS,
 } from "../search/searchSlice";
+import { formatDollarAmount } from "../../../utils/helpers";
 
 const Home = () => {
   const search = useSelector(selectSearch);
@@ -21,13 +22,6 @@ const Home = () => {
       dispatch(getFollowedData(tickers));
     }
   }, [dispatch, search.userFollowedSymbols]);
-
-  const formatDollarAmount = (number) => {
-    return new Intl.NumberFormat("en-US", {
-      style: "currency",
-      currency: "USD",
-    }).format(number);
-  };
 
   let followedTickers;
   let sortButtons;

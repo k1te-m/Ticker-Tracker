@@ -4,6 +4,7 @@ import Loading from "../../loading/Loading";
 import { selectSearch } from "../search/searchSlice";
 import TickerChart from "./TickerChart";
 import WatchButton from "./WatchButton";
+import { formatDollarAmount, formatDate } from "../../../utils/helpers";
 
 const SearchResults = () => {
   const search = useSelector(selectSearch);
@@ -26,31 +27,7 @@ const SearchResults = () => {
 
     const { news } = search.currentTicker;
 
-    const size = 10;
-    const filteredNews = news.slice(0, size);
-
-    const formatDollarAmount = (number) => {
-      return new Intl.NumberFormat("en-US", {
-        style: "currency",
-        currency: "USD",
-      }).format(number);
-    };
-
-    // Formats date to local time and provides day, month, and year
-    const formatDate = (date) => {
-      const dateObj = new Date(date);
-      const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
-      const formattedDate = dateObj.toLocaleString("en-US", {
-        hour: "2-digit",
-        minute: "2-digit",
-        second: "2-digit",
-        timeZone: tz,
-      });
-      const formattedTime = formattedDate;
-      return formattedTime;
-    };
-
-    displayNews = filteredNews.map((news) => (
+    displayNews = news.map((news) => (
       <li key={news.url}>
         <span className="fa-li">
           <i className="fas fa-newspaper" />

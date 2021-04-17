@@ -2,6 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { selectSearch } from "../search/searchSlice";
 import { Line } from "react-chartjs-2";
+import { formatDate } from "../../../utils/helpers";
 
 const TickerChart = () => {
   const search = useSelector(selectSearch);
@@ -17,20 +18,6 @@ const TickerChart = () => {
     let closingPrices = currentTicker.chart.map((dayData) => {
       return dayData.close;
     });
-
-    // Formats date to local time and provides day, month, and year
-    const formatDate = (date) => {
-      const dateObj = new Date(date);
-      const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
-      const formattedDate = dateObj.toLocaleString("en-US", {
-        month: "short",
-        day: "2-digit",
-        year: "2-digit",
-        timeZone: tz,
-      });
-      const formattedTime = formattedDate;
-      return formattedTime;
-    };
 
     if (today.getDay() !== 6 || 0) {
       dates.unshift(formatDate(currentTicker.quote.latestUpdate));
