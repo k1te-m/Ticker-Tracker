@@ -45,12 +45,12 @@
   background-color: $bottomGradient;
   color: $primaryText;
   border: 1px solid $gain;
+  width: 100px;
+  @include respond-above(lg) {
+    width: 200px;
+  }
 }
-.login-btn {
-  background-color: $bottomGradient;
-  border: 1px solid $gain;
-  color: $primaryText;
-}
+
 .sort-btn {
   width: 100px;
   text-align: center;
