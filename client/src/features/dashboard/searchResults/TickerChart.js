@@ -7,6 +7,8 @@ const TickerChart = () => {
   const search = useSelector(selectSearch);
   const { currentTicker } = search;
 
+  const today = new Date();
+
   if (currentTicker) {
     let dates = currentTicker.chart.map((dayData) => {
       return dayData.label;
@@ -30,12 +32,16 @@ const TickerChart = () => {
       return formattedTime;
     };
 
-    dates.unshift(formatDate(currentTicker.quote.latestUpdate));
+    if (today.getDay() !== 6 || 0) {
+      dates.unshift(formatDate(currentTicker.quote.latestUpdate));
+      closingPrices.unshift(currentTicker.quote.latestPrice);
+    }
 
-    closingPrices.unshift(currentTicker.quote.latestPrice);
+    dates.reverse();
+    closingPrices.reverse();
 
     let state = {
-      labels: dates.reverse(),
+      labels: dates,
       datasets: [
         {
           label: "$ Value",
@@ -44,14 +50,17 @@ const TickerChart = () => {
           backgroundColor: "#79ea86",
           borderColor: "rgba(0,0,0,1)",
           borderWidth: 2,
-          data: closingPrices.reverse(),
+          data: closingPrices,
         },
       ],
     };
 
-    if (closingPrices[0] > closingPrices[closingPrices.length - 1]) {
+    if (
+      closingPrices[closingPrices.length - 1] >
+      closingPrices[closingPrices.length - 2]
+    ) {
       state = {
-        labels: dates.reverse(),
+        labels: dates,
         datasets: [
           {
             label: "$ Value",
@@ -60,13 +69,16 @@ const TickerChart = () => {
             backgroundColor: "#79ea86",
             borderColor: "rgba(0,0,0,1)",
             borderWidth: 2,
-            data: closingPrices.reverse(),
+            data: closingPrices,
           },
         ],
       };
-    } else if (closingPrices[0] < closingPrices[1]) {
+    } else if (
+      closingPrices[closingPrices.length - 1] <
+      closingPrices[closingPrices.length - 2]
+    ) {
       state = {
-        labels: dates.reverse(),
+        labels: dates,
         datasets: [
           {
             label: "$ Value",
@@ -75,7 +87,7 @@ const TickerChart = () => {
             backgroundColor: "#e75757",
             borderColor: "rgba(0,0,0,1)",
             borderWidth: 2,
-            data: closingPrices.reverse(),
+            data: closingPrices,
           },
         ],
       };
