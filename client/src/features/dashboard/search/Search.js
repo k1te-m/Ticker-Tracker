@@ -25,6 +25,7 @@ const Search = () => {
     setSearchTerm({ ...searchTerm, [name]: value });
   };
 
+  // Dispatches alerts for blank input/no response & dispatches setSearch
   const handleFormSubmit = (event) => {
     event.preventDefault();
     if (!query) {

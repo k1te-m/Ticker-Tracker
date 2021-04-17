@@ -23,17 +23,19 @@ const Sidebar = () => {
 
   let symbolList;
 
+  // Function to handle sidebar button click
   const hanldeClick = (e, symbol) => {
     window.scrollTo(0, 0);
     e.preventDefault();
     dispatch(setSearch(symbol));
   };
-
+  // Function to handle sidebar home button click, sets currentTicker to null
   const handleHomeClick = (e) => {
     e.preventDefault();
     dispatch(REMOVE_SEARCH());
   };
 
+  // If the user is following any stocks, render a li for sidebar
   if (userFollowedSymbols) {
     const sortedUserSymbols = userFollowedSymbols.slice().sort();
     symbolList = sortedUserSymbols.map((symbol) => (

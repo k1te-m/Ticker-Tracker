@@ -27,11 +27,13 @@ const Home = () => {
   let sortButtons;
 
   if (search.userFollowedData) {
+    // Handle click that dispatches setSearch with the user input
     const handleClick = (e, ticker) => {
       e.preventDefault();
       dispatch(setSearch(ticker));
     };
 
+    // Handle sorting by gainers, losers, and alphabetically
     const handleSort = (e, sort) => {
       e.preventDefault();
       switch (sort) {
@@ -49,6 +51,7 @@ const Home = () => {
       }
     };
 
+    // Sort button render
     sortButtons = (
       <>
         <button
@@ -74,6 +77,9 @@ const Home = () => {
       </>
     );
 
+    /*  Maps over the user's followed ticker and renders a button for each, linking to further stock information/data 
+        Conditional render changes text color based on if stock has gained or lost value for that day
+    */
     followedTickers = search.userFollowedData.map((ticker) => {
       if (ticker.quote.change >= 0) {
         return (
@@ -157,6 +163,7 @@ const Home = () => {
     });
   }
 
+  // If awaiting response, return loading component, else display followedTickers
   if (search.isLoading) {
     return (
       <div className="container-fluid home">

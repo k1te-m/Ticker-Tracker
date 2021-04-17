@@ -8,6 +8,7 @@ const WatchButton = () => {
   const search = useSelector(selectSearch);
   const dispatch = useDispatch();
 
+  // function to add ticker to user's followed stocks
   const followStock = (e) => {
     e.preventDefault();
     const { symbol } = search.currentTicker.quote;
@@ -16,6 +17,7 @@ const WatchButton = () => {
     dispatch(watchStock({ id: id, symbol: symbol }));
   };
 
+  // function to remove ticker from user's followed stocks
   const unFollowStock = (e) => {
     e.preventDefault();
     const { symbol } = search.currentTicker.quote;
@@ -26,6 +28,7 @@ const WatchButton = () => {
 
   const { userFollowedSymbols } = search;
 
+  // Conditional render of watch/unwatch based on userFollowedSymbols
   if (userFollowedSymbols.includes(search.currentTicker.quote.symbol)) {
     return (
       <button

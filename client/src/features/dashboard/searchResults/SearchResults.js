@@ -27,6 +27,7 @@ const SearchResults = () => {
 
     const { news } = search.currentTicker;
 
+    // Map over the currentTicker news and render a li for each item
     displayNews = news.map((news) => (
       <li key={news.url}>
         <span className="fa-li">
@@ -40,6 +41,7 @@ const SearchResults = () => {
       </li>
     ));
 
+    // Conditional render for positive or negative day over day $ value change
     if (change >= 0) {
       tickerCard = (
         <div className="container stock-info my-auto">
@@ -139,7 +141,7 @@ const SearchResults = () => {
       );
     }
   }
-
+  // While loading, return the loading component
   if (search.isLoading) {
     return (
       <div className="container">
