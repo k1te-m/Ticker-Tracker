@@ -25,7 +25,7 @@
   .change {
     font-size: 14px;
     @include respond-above(md) {
-      font-size: 16px;
+      font-size: 14px;
     }
   }
 }
@@ -33,12 +33,20 @@
 .home-card {
   background-color: $topGradient;
   border: none;
-  height: 155px;
-  width: auto;
-  padding: auto;
+  height: auto;
+  width: 260px;
   margin: auto;
   justify-content: center;
+  align-items: center;
+  @include respond-above(md) {
+    width: 275px;
+    height: 160px;
+  }
   @include respond-above(xl) {
     width: 500px;
+    height: 125px;
+  }
+  .card-body {
+    width: 100%;
   }
 }
