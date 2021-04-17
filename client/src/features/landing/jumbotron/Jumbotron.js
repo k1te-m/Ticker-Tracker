@@ -13,8 +13,8 @@ const Jumbotron = () => {
       <div className="row">
         <span className="short-desc">
           <span className="gain">VANTAGE</span> provides up to the minute stock
-          market data and news powered by IEX Cloud. Create an account to begin
-          watching and tracking your portfolio.
+          market data and news powered by IEX Cloud. Keep an eye on your
+          investments and the market from anywhere.
         </span>
       </div>
     </div>
