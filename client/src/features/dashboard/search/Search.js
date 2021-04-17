@@ -3,10 +3,13 @@ import { useSelector, useDispatch } from "react-redux";
 import { selectAuth, LOGOUT } from "../../auth/authSlice";
 import LogoutButton from "../../logout/LogoutButton";
 import { setSearch } from "../search/searchSlice";
+import { SET_ALERT } from "../../alert/alertSlice";
+import { selectSearch } from "../search/searchSlice";
 
 const Search = () => {
   const auth = useSelector(selectAuth);
   const dispatch = useDispatch();
+  const search = useSelector(selectSearch);
 
   const [searchTerm, setSearchTerm] = useState({
     query: "",
@@ -24,26 +27,41 @@ const Search = () => {
 
   const handleFormSubmit = (event) => {
     event.preventDefault();
-    dispatch(setSearch(query));
+    if (!query) {
+      dispatch(
+        SET_ALERT({
+          message: "Ticker field must be populated.",
+          type: "danger",
+        })
+      );
+    } else if (search.error) {
+      dispatch(
+        SET_ALERT({ message: "Please enter a valid ticker.", type: "danger" })
+      );
+    } else {
+      dispatch(setSearch(query));
+    }
   };
 
   return (
     <div className="container-fluid search pt-3">
       <div className="row">
-        <div className="col-10">
+        <div className="col-10 col-lg-11">
           <h3 className="welcome pt-1">Welcome, {username}!</h3>
         </div>
-        <div className="col-2">
+        <div className="col-2 col-lg-1">
           <LogoutButton logout={() => dispatch(LOGOUT())} />
         </div>
       </div>
       <div className="row">
-        <p>Enter any stock ticker and select search to retrieve ticker data.</p>
+        <p className="mb-1">
+          Enter any stock ticker and select search to retrieve ticker data.
+        </p>
       </div>
       <div className="row">
         <div className="col-12">
           <form className="row align-items-center">
-            <div className="col-12">
+            <div className="col-12 col-md-3 col-lg-3">
               <label className="visually-hidden">Ticker</label>
               <div className="input-group">
                 <input
