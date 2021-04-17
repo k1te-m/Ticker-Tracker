@@ -23,7 +23,6 @@ const Landing = (props) => {
     <>
       <Jumbotron />
       <Entry />
-      <Description />
       <Footer />
     </>
   );
