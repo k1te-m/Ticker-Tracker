@@ -10,7 +10,7 @@
   background-color: $topGradient;
   color: $primaryText;
   margin: auto;
-  padding: auto;
+  padding: 10px;
   @include respond-above(md) {
     width: 400px;
   }
@@ -26,7 +26,7 @@
     color: $secondaryText;
   }
   .week {
-    font-size: 10px;
+    font-size: 12px;
     @include respond-above(md) {
       font-size: 14px;
     }
@@ -47,7 +47,7 @@
     color: $loss;
   }
   .dollar-change {
-    font-size: 10px;
+    font-size: 12px;
     @include respond-above(md) {
       font-size: 14px;
     }
@@ -56,7 +56,7 @@
     }
   }
   .percent-change {
-    font-size: 10px;
+    font-size: 12px;
     @include respond-above(md) {
       font-size: 14px;
     }
@@ -78,6 +78,9 @@
 
 .chart-container {
   text-align: center;
+  background-color: $topGradient;
+  border: 1px solid black;
+  border-radius: 15px;
   canvas {
     margin: 0 auto;
   }
