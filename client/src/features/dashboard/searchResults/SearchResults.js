@@ -1,5 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import Loading from "../../loading/Loading";
 import { selectSearch } from "../search/searchSlice";
 import TickerChart from "./TickerChart";
 import WatchButton from "./WatchButton";
@@ -153,37 +154,47 @@ const SearchResults = () => {
                 52-Week Low: {formatDollarAmount(week52Low)}
               </span>
             </div>
-            <div className="row mb-1">
-              <WatchButton />
-            </div>
+          </div>
+          <div className="row mb-1">
+            <WatchButton />
           </div>
         </div>
       );
     }
   }
 
-  return (
-    <div className="container-fluid mt-3 pt-2">
-      <div className="row">
-        <div className="col-12">{tickerCard}</div>
+  if (search.isLoading) {
+    return (
+      <div className="container">
+        <div className="row">
+          <Loading />
+        </div>
       </div>
-      <div className="row pt-2 chart ">
-        <TickerChart />
-      </div>
-      <div className="row">
-        <div className="col-12">
-          <div className="container pt-4 news">
-            {search.currentTicker && (
-              <div className="row">
-                <h3>NEWS</h3>
-              </div>
-            )}
-            <ul className="fa-ul">{displayNews}</ul>
+    );
+  } else {
+    return (
+      <div className="container-fluid mt-3 pt-2">
+        <div className="row">
+          <div className="col-12">{tickerCard}</div>
+        </div>
+        <div className="row pt-2 chart ">
+          <TickerChart />
+        </div>
+        <div className="row">
+          <div className="col-12">
+            <div className="container pt-4 news">
+              {search.currentTicker && (
+                <div className="row">
+                  <h3>NEWS</h3>
+                </div>
+              )}
+              <ul className="fa-ul">{displayNews}</ul>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  );
+    );
+  }
 };
 
 export default SearchResults;
