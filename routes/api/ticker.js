@@ -43,7 +43,7 @@ router.get("/batchquery/:tickers", async (req, res) => {
 
     res.send(response.data);
   } catch (error) {
-    restart.status(500).json({
+    res.status(500).json({
       success: false,
       message: error.message,
     });
