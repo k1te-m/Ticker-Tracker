@@ -55,10 +55,7 @@ const TickerChart = () => {
       ],
     };
 
-    if (
-      closingPrices[closingPrices.length - 1] >
-      closingPrices[closingPrices.length - 2]
-    ) {
+    if (closingPrices[closingPrices.length - 1] > closingPrices[0]) {
       state = {
         labels: dates,
         datasets: [
@@ -73,10 +70,7 @@ const TickerChart = () => {
           },
         ],
       };
-    } else if (
-      closingPrices[closingPrices.length - 1] <
-      closingPrices[closingPrices.length - 2]
-    ) {
+    } else if (closingPrices[closingPrices.length - 1] < closingPrices[0]) {
       state = {
         labels: dates,
         datasets: [
