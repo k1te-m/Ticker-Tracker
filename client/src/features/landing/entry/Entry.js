@@ -3,11 +3,11 @@ import { Link } from "react-router-dom";
 
 const Entry = () => {
   return (
-    <div className="container entry">
+    <div className="container entry mt-4">
       <div className="row">
         <div className="col-6">
           <Link to="/register">
-            <button className="button btn entry-btn">Sign Up</button>
+            <button className="button btn entry-btn">Register</button>
           </Link>
         </div>
         <div className="col-6">
@@ -16,10 +16,20 @@ const Entry = () => {
           </Link>
         </div>
       </div>
-      <div className="row row-cols-2 mt-4">
-        <img src="https://via.placeholder.com/150" />
-
-        <img src="https://via.placeholder.com/150" />
+      <div className="row mt-2">
+        <div className="col col-lg-7">
+          <img src="../images/vantage.png" className="landing-img" />
+        </div>
+        <div className="col col-lg-5">
+          <p className="description">
+            Register now to begin watching and tracking your portfolio. Simply
+            enter a stock ticker and hit search to begin tracking your favorite
+            companies. <span className="gain">VANTAGE</span> provides the most
+            up to date stock information available along with detailed news to
+            keep you in the know. With <span className="gain">VANTAGE</span> the
+            market is at your fingertips.
+          </p>
+        </div>
       </div>
     </div>
   );
