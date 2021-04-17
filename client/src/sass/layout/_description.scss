@@ -3,11 +3,16 @@
 .description {
   text-align: center;
   color: $primaryText;
+  font-style: italic;
+  margin-bottom: 30px;
   @include respond-above(md) {
-    margin-bottom: 40px;
+    margin-top: 40px;
   }
   @include respond-above(lg) {
-    margin-bottom: 310px;
     font-size: 25px;
+    margin-top: 50px;
+  }
+  @include respond-above(xl) {
+    margin-top: 110px;
   }
 }

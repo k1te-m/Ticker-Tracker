@@ -1,6 +1,37 @@
+@import "../helpers/mixins";
+
 .entry {
   text-align: center;
   align-items: center;
   justify-content: center;
   margin-top: 25px;
+  @include respond-above(md) {
+    margin-bottom: 65px;
+  }
+  @include respond-above(lg) {
+    margin-bottom: 175px;
+  }
+
+  .landing-img {
+    width: auto;
+    height: 200px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    @include respond-above(md) {
+      margin-top: 35px;
+    }
+    @include respond-above(lg) {
+      width: 500px;
+      height: auto;
+      margin-top: 100px;
+    }
+    @include respond-above(xl) {
+      width: 600px;
+      height: auto;
+    }
+  }
+  .gain {
+    color: $gain;
+    font-weight: bold;
+  }
 }
