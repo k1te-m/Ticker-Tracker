@@ -34,6 +34,7 @@ const WatchButton = () => {
           unFollowStock(e);
         }}
       >
+        <span className="follow">Unfollow Stock</span>{" "}
         <i className="fas fa-eye-slash" />
       </button>
     );
@@ -45,6 +46,7 @@ const WatchButton = () => {
           followStock(e);
         }}
       >
+        <span className="follow">Follow Stock</span>{" "}
         <i className="fas fa-eye" />
       </button>
     );

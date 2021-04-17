@@ -12,12 +12,18 @@
   background-color: transparent;
   border: none;
   color: green;
+  .follow {
+    font-size: 12px;
+  }
 }
 
 .unwatch-button {
   background-color: transparent;
   border: none;
   color: red;
+  .follow {
+    font-size: 12px;
+  }
 }
 
 .ticker-button {
