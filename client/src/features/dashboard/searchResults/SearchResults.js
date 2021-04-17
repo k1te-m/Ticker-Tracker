@@ -166,7 +166,7 @@ const SearchResults = () => {
   if (search.isLoading) {
     return (
       <div className="container">
-        <div className="row">
+        <div className="row mt-5">
           <Loading />
         </div>
       </div>
