@@ -88,6 +88,7 @@ const Home = () => {
             onClick={(e) => {
               handleClick(e, ticker.quote.symbol);
             }}
+            key={ticker.quote.symbol}
           >
             <div className="card home-card">
               <div className="card-body">
@@ -126,8 +127,9 @@ const Home = () => {
             onClick={(e) => {
               handleClick(e, ticker.quote.symbol);
             }}
+            key={ticker.quote.symbol}
           >
-            <div className="card home-card">
+            <div className="card home-card mx-auto">
               <div className="card-body">
                 <div className="row">
                   <h5 className="card-title company-name">
