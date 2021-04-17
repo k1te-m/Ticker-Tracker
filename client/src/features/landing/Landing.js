@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import Footer from "../footer/Footer";
-import Description from "./description/Description";
 import Entry from "./entry/Entry";
 import Jumbotron from "./jumbotron/Jumbotron";
 import { useSelector, useDispatch } from "react-redux";
