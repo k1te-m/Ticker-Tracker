@@ -16,13 +16,10 @@ const Entry = () => {
           </Link>
         </div>
       </div>
-      <div className="row mt-4">
-        <div className="col-6">
-          <img src="https://via.placeholder.com/150" />
-        </div>
-        <div className="col-6">
-          <img src="https://via.placeholder.com/150" />
-        </div>
+      <div className="row row-cols-2 mt-4">
+        <img src="https://via.placeholder.com/150" />
+
+        <img src="https://via.placeholder.com/150" />
       </div>
     </div>
   );
