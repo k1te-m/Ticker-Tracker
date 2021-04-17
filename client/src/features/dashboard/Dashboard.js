@@ -43,12 +43,12 @@ const Dashboard = () => {
       <>
         <div className="dashboard container-fluid">
           <div className="row">
-            <div className="col-2 p-0">
+            <div className="col-2 col-lg-1 p-0">
               <Sticky bottomBoundary="#bottom">
                 <Sidebar />
               </Sticky>
             </div>
-            <div className="col-10 p-0" id="bottom">
+            <div className="col-10 col-lg-11 p-0" id="bottom">
               <Search />
               <SearchResults />
             </div>
