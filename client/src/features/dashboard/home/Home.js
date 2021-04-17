@@ -175,7 +175,7 @@ const Home = () => {
         </h5>
 
         <div className="row">
-          <span className="secondary ul pb-2">Click to Sort</span>
+          <span className="secondary ul pb-2 sort">Click to Sort</span>
         </div>
         <div className="row row-cols-3 pb-2 justify-content-center">
           {sortButtons}
