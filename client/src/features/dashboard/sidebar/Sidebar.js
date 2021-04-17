@@ -50,8 +50,11 @@ const Sidebar = () => {
   return (
     <div className=" sidebar">
       <ul className="list-group pt-2 pb-2">
-        <li className="list-group-item card">
-          <i className="fas fa-home" onClick={(e) => handleHomeClick(e)} />
+        <li
+          className="list-group-item card"
+          onClick={(e) => handleHomeClick(e)}
+        >
+          <i className="fas fa-home" />
         </li>
         {symbolList}
       </ul>
