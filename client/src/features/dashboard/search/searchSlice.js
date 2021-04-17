@@ -9,6 +9,7 @@ const initialState = {
   userFollowedData: null,
 };
 
+// API GET request to retrieve specific ticker data from IEX Cloud
 export const setSearch = createAsyncThunk(
   "search/setSearch",
   async (query, thunkAPI) => {
@@ -17,6 +18,7 @@ export const setSearch = createAsyncThunk(
   }
 );
 
+// API PUT request to add ticker to user's followed stocks in db
 export const watchStock = createAsyncThunk(
   "search/watchStock",
   async ({ id, symbol }, thunkAPI) => {
@@ -25,6 +27,7 @@ export const watchStock = createAsyncThunk(
   }
 );
 
+// API PUT request to remove ticker from user's followed stocks in db
 export const unwatchStock = createAsyncThunk(
   "search/unwatchStock",
   async ({ id, symbol }, thunkAPI) => {
@@ -33,6 +36,7 @@ export const unwatchStock = createAsyncThunk(
   }
 );
 
+// API GET request to retrieve all user followed tickers from the db
 export const getFollowedSymbols = createAsyncThunk(
   "search/getFollowedSymbols",
   async (id, thunkAPI) => {
@@ -42,6 +46,7 @@ export const getFollowedSymbols = createAsyncThunk(
   }
 );
 
+// API GET request to retrieve stock data from IEX Cloud for all user followed tickers
 export const getFollowedData = createAsyncThunk(
   "search/getFollowedData",
   async (tickers, thunkAPI) => {
@@ -63,19 +68,23 @@ export const searchSlice = createSlice({
   name: "search",
   initialState,
   reducers: {
+    // Clears currentTicker, returning user to home
     REMOVE_SEARCH: (state) => {
       return { ...state, currentTicker: null };
     },
+    // Sorts userFollowedData by largest positive % change
     SORT_GAINERS: (state) => {
       state.userFollowedData.sort((a, b) =>
         a.quote.changePercent < b.quote.changePercent ? 1 : -1
       );
     },
+    // Sort userFollowedData by largest negative % change
     SORT_LOSERS: (state) => {
       state.userFollowedData.sort((a, b) =>
         a.quote.changePercent > b.quote.changePercent ? 1 : -1
       );
     },
+    // Sorts userFollowedData alphabetically
     SORT_ALPHA: (state) => {
       state.userFollowedData.sort((a, b) =>
         a.quote.companyName > b.quote.companyName ? 1 : -1
@@ -141,6 +150,7 @@ export const searchSlice = createSlice({
   },
 });
 
+// Actions
 export const {
   REMOVE_SEARCH,
   SORT_GAINERS,
