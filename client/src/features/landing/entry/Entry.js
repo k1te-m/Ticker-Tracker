@@ -22,12 +22,13 @@ const Entry = () => {
         </div>
         <div className="col col-lg-5">
           <p className="description">
-            Register now to begin watching and tracking your portfolio. Simply
-            enter a stock ticker and hit search to begin tracking your favorite
-            companies. <span className="gain">VANTAGE</span> provides the most
-            up to date stock information available along with detailed news to
-            keep you in the know. With <span className="gain">VANTAGE</span> the
-            market is at your fingertips.
+            <span className="gain">VANTAGE</span> provides the most up to date
+            stock information available along with detailed news to keep you in
+            the know. Register now to begin watching and tracking your
+            portfolio. Simply enter a stock ticker and hit search to begin
+            tracking your favorite companies. With{" "}
+            <span className="gain">VANTAGE</span> the market is at your
+            fingertips.
           </p>
         </div>
       </div>
