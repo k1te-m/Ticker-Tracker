@@ -3,6 +3,7 @@ import API from "../../../utils/API";
 
 const initialState = {
   isLoading: false,
+  landingTicker: null,
   currentTicker: null,
   error: null,
   userFollowedSymbols: null,
@@ -12,6 +13,14 @@ const initialState = {
 // API GET request to retrieve specific ticker data from IEX Cloud
 export const setSearch = createAsyncThunk(
   "search/setSearch",
+  async (query, thunkAPI) => {
+    const response = await API.searchTicker(query);
+    return response.data;
+  }
+);
+
+export const setLandingSearch = createAsyncThunk(
+  "search/setLandingSearch",
   async (query, thunkAPI) => {
     const response = await API.searchTicker(query);
     return response.data;
@@ -72,6 +81,9 @@ export const searchSlice = createSlice({
     REMOVE_SEARCH: (state) => {
       return { ...state, currentTicker: null };
     },
+    CLEAR_ERROR: (state) => {
+      return { ...state, error: null };
+    },
     // Sorts userFollowedData by largest positive % change
     SORT_GAINERS: (state) => {
       state.userFollowedData.sort((a, b) =>
@@ -105,6 +117,17 @@ export const searchSlice = createSlice({
       state.currentTicker = action.payload;
     },
     [setSearch.rejected]: (state) => {
+      state.isLoading = false;
+      state.error = "Error fetching results.";
+    },
+    [setLandingSearch.pending]: (state) => {
+      state.isLoading = true;
+    },
+    [setLandingSearch.fulfilled]: (state, action) => {
+      state.isLoading = false;
+      state.landingTicker = action.payload;
+    },
+    [setLandingSearch.rejected]: (state) => {
       state.isLoading = false;
       state.error = "Error fetching results.";
     },
@@ -162,6 +185,7 @@ export const {
   SORT_ALPHA,
   SORT_ALPHA_REVERSE,
   SORT_LOSERS,
+  CLEAR_ERROR,
 } = searchSlice.actions;
 
 // Selectors
