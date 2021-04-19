@@ -4,6 +4,8 @@ import Entry from "./entry/Entry";
 import Jumbotron from "./jumbotron/Jumbotron";
 import { useSelector, useDispatch } from "react-redux";
 import { selectAuth, loadUser } from "../auth/authSlice";
+import LandingSearch from "./landingSearch/LandingSearch";
+import LandingSearchResults from "./landingSearch/LandingSearchResults";
 
 const Landing = (props) => {
   const auth = useSelector(selectAuth);
@@ -16,12 +18,15 @@ const Landing = (props) => {
     if (!auth.user) {
       dispatch(loadUser());
     }
+    window.scrollTo(0, 0);
   }, [auth.isAuthenticated, auth.user, props.history, dispatch]);
 
   return (
     <>
       <Jumbotron />
       <Entry />
+      <LandingSearch />
+      <LandingSearchResults />
       <Footer />
     </>
   );
