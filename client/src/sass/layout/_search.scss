@@ -1,6 +1,23 @@
+@import "../helpers/mixins";
+
 .search {
   color: $primaryText;
   width: 100%;
+}
+
+.land-search {
+  color: $primaryText;
+  text-align: center;
+  justify-content: center;
+}
+
+.land-results {
+  margin-bottom: 25px;
+  @include respond-above(lg) {
+    @include orientation(portrait) {
+      margin-bottom: 220px;
+    }
+  }
 }
 
 .stock-info {
