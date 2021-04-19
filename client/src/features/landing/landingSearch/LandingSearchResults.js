@@ -119,14 +119,14 @@ const LandingSearchResults = () => {
   if (search.isLoading) {
     return (
       <div className="container-fluid">
-        <div className="row mt-5">
+        <div className="row mt-5 mb-5">
           <Loading />
         </div>
       </div>
     );
   } else {
     return (
-      <div className="container-fluid mt-1 mb-3">
+      <div className="container-fluid land-results mt-1">
         <div className="row">
           <div className="col-12">{tickerCard}</div>
         </div>
