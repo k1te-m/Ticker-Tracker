@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import Loading from "../../loading/Loading";
 import Search from "../search/Search";
@@ -9,12 +9,15 @@ import {
   SORT_GAINERS,
   SORT_ALPHA,
   SORT_LOSERS,
+  SORT_ALPHA_REVERSE,
 } from "../search/searchSlice";
 import { formatDollarAmount } from "../../../utils/helpers";
 
 const Home = () => {
   const search = useSelector(selectSearch);
   const dispatch = useDispatch();
+
+  const [alphaToggle, setAlphaToggle] = useState(false);
 
   useEffect(() => {
     if (search.userFollowedSymbols) {
@@ -39,12 +42,20 @@ const Home = () => {
       switch (sort) {
         case "gainers":
           dispatch(SORT_GAINERS());
+          setAlphaToggle(false);
           break;
         case "losers":
           dispatch(SORT_LOSERS());
+          setAlphaToggle(false);
           break;
         case "alpha":
-          dispatch(SORT_ALPHA());
+          if (alphaToggle) {
+            dispatch(SORT_ALPHA_REVERSE());
+            setAlphaToggle(false);
+          } else if (!alphaToggle) {
+            dispatch(SORT_ALPHA());
+            setAlphaToggle(true);
+          }
           break;
         default:
           break;

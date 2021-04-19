@@ -90,6 +90,11 @@ export const searchSlice = createSlice({
         a.quote.companyName > b.quote.companyName ? 1 : -1
       );
     },
+    SORT_ALPHA_REVERSE: (state) => {
+      state.userFollowedData.sort((a, b) =>
+        a.quote.companyName < b.quote.companyName ? 1 : -1
+      );
+    },
   },
   extraReducers: {
     [setSearch.pending]: (state) => {
@@ -155,6 +160,7 @@ export const {
   REMOVE_SEARCH,
   SORT_GAINERS,
   SORT_ALPHA,
+  SORT_ALPHA_REVERSE,
   SORT_LOSERS,
 } = searchSlice.actions;
 
