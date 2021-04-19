@@ -1,7 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { SET_ALERT } from "../../alert/alertSlice";
-import { selectSearch, setSearch } from "../../dashboard/search/searchSlice";
+import {
+  REMOVE_SEARCH,
+  selectSearch,
+  setLandingSearch,
+  CLEAR_ERROR,
+} from "../../dashboard/search/searchSlice";
 
 const LandingSearch = () => {
   const dispatch = useDispatch();
@@ -10,6 +15,13 @@ const LandingSearch = () => {
   const [searchTerm, setSearchTerm] = useState({
     query: "",
   });
+
+  useEffect(() => {
+    dispatch(REMOVE_SEARCH());
+    // eslint-disable-next-line
+    dispatch(setLandingSearch("NFLX"));
+    // eslint-disable-next-line
+  }, []);
 
   const { query } = searchTerm;
 
@@ -32,8 +44,9 @@ const LandingSearch = () => {
       dispatch(
         SET_ALERT({ message: "Please enter a valid ticker.", type: "danger" })
       );
-    } else {
-      dispatch(setSearch(query));
+      dispatch(CLEAR_ERROR());
+    } else if (query) {
+      dispatch(setLandingSearch(query));
       window.scrollTo(0, document.body.scrollHeight);
     }
   };

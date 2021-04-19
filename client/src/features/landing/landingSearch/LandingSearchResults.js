@@ -9,7 +9,7 @@ const LandingSearchResults = () => {
 
   let tickerCard = null;
 
-  if (search.currentTicker) {
+  if (search.landingTicker) {
     const {
       symbol,
       companyName,
@@ -20,7 +20,7 @@ const LandingSearchResults = () => {
       change,
       changePercent,
       previousClose,
-    } = search.currentTicker.quote;
+    } = search.landingTicker.quote;
 
     if (change >= 0) {
       tickerCard = (
@@ -119,7 +119,7 @@ const LandingSearchResults = () => {
   if (search.isLoading) {
     return (
       <div className="container-fluid land-load">
-        <div className="row mt-5 mb-5">
+        <div className="row">
           <Loading />
         </div>
       </div>
