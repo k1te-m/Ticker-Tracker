@@ -118,7 +118,7 @@ const LandingSearchResults = () => {
 
   if (search.isLoading) {
     return (
-      <div className="container-fluid">
+      <div className="container-fluid land-load">
         <div className="row mt-5 mb-5">
           <Loading />
         </div>

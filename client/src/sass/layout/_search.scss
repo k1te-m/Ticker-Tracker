@@ -12,10 +12,20 @@
 }
 
 .land-results {
-  margin-bottom: 25px;
+  height: 400px;
+  margin-bottom: 15px;
   @include respond-above(lg) {
     @include orientation(portrait) {
-      margin-bottom: 220px;
+    }
+  }
+}
+
+.land-load {
+  .load {
+    @include respond-above(lg) {
+      @include orientation(portrait) {
+        margin-bottom: 243px;
+      }
     }
   }
 }
