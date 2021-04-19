@@ -1,13 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { SET_ALERT } from "../../alert/alertSlice";
-import { selectAuth } from "../../auth/authSlice";
 import { selectSearch, setSearch } from "../../dashboard/search/searchSlice";
 
 const LandingSearch = () => {
   const dispatch = useDispatch();
   const search = useSelector(selectSearch);
-  const auth = useSelector(selectAuth);
 
   const [searchTerm, setSearchTerm] = useState({
     query: "",
