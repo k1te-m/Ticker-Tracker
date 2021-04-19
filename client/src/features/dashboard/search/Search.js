@@ -2,9 +2,8 @@ import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { selectAuth, LOGOUT } from "../../auth/authSlice";
 import LogoutButton from "../../logout/LogoutButton";
-import { setSearch } from "../search/searchSlice";
+import { setSearch, selectSearch } from "../search/searchSlice";
 import { SET_ALERT } from "../../alert/alertSlice";
-import { selectSearch } from "../search/searchSlice";
 
 const Search = () => {
   const auth = useSelector(selectAuth);
