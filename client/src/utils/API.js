@@ -1,5 +1,5 @@
 import axios from "axios";
-
+// eslint-disable-next-line
 export default {
   searchTicker: (ticker) => {
     delete axios.defaults.headers.common["x-auth-token"];
