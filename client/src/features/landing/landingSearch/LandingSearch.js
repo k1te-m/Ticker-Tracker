@@ -34,6 +34,7 @@ const LandingSearch = () => {
       );
     } else {
       dispatch(setSearch(query));
+      window.scrollTo(0, document.body.scrollHeight);
     }
   };
 
