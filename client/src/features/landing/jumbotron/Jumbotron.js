@@ -3,7 +3,7 @@ import React from "react";
 const Jumbotron = () => {
   return (
     <div className="container-fluid jumbotron">
-      <img src="../logo192.png" className="logo mt-2" />
+      <img src="../logo192.png" className="logo mt-2" alt="vantage-logo" />
       <div className="row">
         <h1 className="welcome">WELCOME TO</h1>
       </div>
