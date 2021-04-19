@@ -28,6 +28,7 @@ export function formatDateMDY(date) {
     month: "short",
     day: "numeric",
     year: "2-digit",
+    timeZone: tz,
   });
   return formattedDate;
 }
