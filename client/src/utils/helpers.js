@@ -6,7 +6,7 @@ export function formatDollarAmount(number) {
   }).format(number);
 }
 
-// Formats date to local time and provides day, month, and year
+// Formats date to local time and provides hour, minute, second
 export function formatDate(date) {
   const dateObj = new Date(date);
   const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
@@ -18,4 +18,16 @@ export function formatDate(date) {
   });
   const formattedTime = formattedDate;
   return formattedTime;
+}
+
+// Formats date to local time and provides Month, Day, Year
+export function formatDateMDY(date) {
+  const dateObj = new Date(date);
+  const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
+  const formattedDate = dateObj.toLocaleString("en-US", {
+    month: "short",
+    day: "numeric",
+    year: "2-digit",
+  });
+  return formattedDate;
 }
