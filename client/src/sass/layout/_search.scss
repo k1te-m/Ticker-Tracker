@@ -5,6 +5,10 @@
   width: 100%;
 }
 
+#bottom {
+  border-left: 1px solid $topGradient;
+}
+
 .land-search {
   color: $primaryText;
   text-align: center;
@@ -15,13 +19,18 @@
   margin-bottom: 15px;
   @include respond-above(lg) {
     @include orientation(portrait) {
-      margin-bottom: 220px;
+      margin-bottom: 222px;
     }
   }
 }
 
 .land-load {
-  height: 171px;
+  height: 176px;
+  margin-top: 18px;
+  @include respond-above(lg) {
+    margin-top: 50px;
+    margin-bottom: 166px;
+  }
 }
 
 .stock-info {
