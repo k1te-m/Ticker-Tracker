@@ -1,6 +1,7 @@
 @import "../helpers/variables";
 
 .home {
+  border-left: 1px solid $topGradient;
   height: 100%;
   .gain {
     color: $gain;

@@ -5,7 +5,8 @@
   padding: 0;
   margin: 0;
   background-color: $menuBar;
-  border-right: 1px solid $topGradient;
+  border-bottom: 1px solid $topGradient;
+  overflow: auto;
   ul {
     display: flex;
     align-items: center;
