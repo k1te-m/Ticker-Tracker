@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { selectAuth, loginUser } from "../auth/authSlice";
 import { SET_ALERT } from "../alert/alertSlice";
 import Footer from "../footer/Footer";
+import { REMOVE_SEARCH } from "../dashboard/search/searchSlice";
 
 const Login = (props) => {
   const auth = useSelector(selectAuth);
@@ -12,7 +13,9 @@ const Login = (props) => {
     if (auth.isAuthenticated) {
       props.history.push("/dashboard");
     }
-  }, [auth.isAuthenticated, props.history]);
+    window.scrollTo(0, 0);
+    dispatch(REMOVE_SEARCH());
+  }, [auth.isAuthenticated, props.history, dispatch]);
 
   // State Object for user email and password inputs
   const [userObject, setUserObject] = useState({
@@ -64,7 +67,7 @@ const Login = (props) => {
 
   return (
     <>
-      <img src="../logo192.png" className="up-logo mt-2" />
+      <img src="../logo192.png" className="up-logo mt-2" alt="vantage-logo" />
       <div className="container login">
         <div className="row">
           <h3>Account Log In</h3>

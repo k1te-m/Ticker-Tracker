@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { selectAuth, registerUser } from "../auth/authSlice";
 import { SET_ALERT } from "../alert/alertSlice";
 import Footer from "../footer/Footer";
+import { REMOVE_SEARCH } from "../dashboard/search/searchSlice";
 
 const Register = (props) => {
   const auth = useSelector(selectAuth);
@@ -12,7 +13,9 @@ const Register = (props) => {
     if (auth.isAuthenticated) {
       props.history.push("/dashboard");
     }
-  }, [auth.error, auth.isAuthenticated, props.history]);
+    window.scrollTo(0, 0);
+    dispatch(REMOVE_SEARCH());
+  }, [auth.error, auth.isAuthenticated, props.history, dispatch]);
 
   const [userObject, setUserObject] = useState({
     name: "",
@@ -68,7 +71,7 @@ const Register = (props) => {
 
   return (
     <>
-      <img src="../logo192.png" className="up-logo mt-2" />
+      <img src="../logo192.png" className="up-logo mt-2" alt="vantage-logo" />
       <div className="container signup">
         <div className="row">
           <h3>Create your account</h3>
