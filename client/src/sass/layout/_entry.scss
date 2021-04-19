@@ -9,7 +9,6 @@
     margin-bottom: 65px;
   }
   @include respond-above(lg) {
-    margin-bottom: 175px;
   }
 
   .landing-img {
@@ -24,9 +23,6 @@
       width: 500px;
       height: auto;
       margin-top: 100px;
-      @include orientation(portrait) {
-        margin-bottom: 535px;
-      }
     }
     @include respond-above(xl) {
       width: 600px;
