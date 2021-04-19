@@ -2,7 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { selectSearch } from "../search/searchSlice";
 import { Line } from "react-chartjs-2";
-import { formatDate } from "../../../utils/helpers";
+import { formatDateMDY } from "../../../utils/helpers";
 
 const TickerChart = () => {
   const search = useSelector(selectSearch);
@@ -22,7 +22,7 @@ const TickerChart = () => {
     });
     // If it is not a weekend, add the current day date and price to the dates/closingPrices arrays
     if (today.getDay() !== 6 || 0) {
-      dates.unshift(formatDate(currentTicker.quote.latestUpdate));
+      dates.unshift(formatDateMDY(currentTicker.quote.latestUpdate));
       closingPrices.unshift(currentTicker.quote.latestPrice);
     }
     // reverse order of both arrays for chronological order
