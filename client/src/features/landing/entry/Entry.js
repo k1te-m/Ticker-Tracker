@@ -18,15 +18,19 @@ const Entry = () => {
       </div>
       <div className="row mt-2">
         <div className="col col-lg-7">
-          <img src="../images/vantage.png" className="landing-img" />
+          <img
+            src="../images/vantage.png"
+            className="landing-img"
+            alt="VANTAGE"
+          />
         </div>
         <div className="col col-lg-5">
           <p className="description">
             <span className="gain">VANTAGE</span> provides the most up to date
             stock information available along with detailed news to keep you in
-            the know. Register now to begin watching and tracking your
-            portfolio. Simply enter a stock ticker and hit search to begin
-            tracking your favorite companies. With{" "}
+            the know. Simply enter a stock ticker and hit search to begin
+            tracking your favorite companies. Register now to add companies to
+            your watch list and access even more market data. With{" "}
             <span className="gain">VANTAGE</span> the market is at your
             fingertips.
           </p>
