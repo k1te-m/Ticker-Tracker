@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { selectAuth, LOGOUT } from "../../auth/authSlice";
 import LogoutButton from "../../logout/LogoutButton";
-import { setSearch, selectSearch } from "../search/searchSlice";
+import { setSearch, selectSearch, CLEAR_SEARCH } from "../search/searchSlice";
 import { SET_ALERT } from "../../alert/alertSlice";
 
 const Search = () => {
@@ -34,13 +34,18 @@ const Search = () => {
           type: "danger",
         })
       );
-    } else if (search.error) {
+    } else if (search.error === "Error fetching results.") {
       dispatch(
         SET_ALERT({ message: "Please enter a valid ticker.", type: "danger" })
       );
     } else {
       dispatch(setSearch(query));
     }
+  };
+
+  const logout = () => {
+    dispatch(CLEAR_SEARCH());
+    dispatch(LOGOUT());
   };
 
   return (
@@ -52,7 +57,7 @@ const Search = () => {
           </h3>
         </div>
         <div className="col-2 col-lg-1">
-          <LogoutButton logout={() => dispatch(LOGOUT())} />
+          <LogoutButton logout={() => logout()} />
         </div>
       </div>
       <div className="row">
