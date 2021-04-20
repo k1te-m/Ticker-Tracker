@@ -11,7 +11,7 @@
 .watch-button {
   background-color: transparent;
   border: none;
-  color: green;
+  color: $gain;
   .follow {
     font-size: 12px;
   }
@@ -20,7 +20,7 @@
 .unwatch-button {
   background-color: transparent;
   border: none;
-  color: red;
+  color: $loss;
   .follow {
     font-size: 12px;
   }
@@ -39,6 +39,9 @@
   background-color: $bottomGradient;
   color: $primaryText;
   border: 1px solid $gain;
+  i {
+    color: $gain;
+  }
 }
 
 .entry-btn {
