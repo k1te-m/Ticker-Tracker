@@ -1,6 +1,7 @@
 const User = require("../models/User");
 
 module.exports = {
+  // Add ticker symbol to user's followedSymbols
   watchStock: async (req, res) => {
     const id = req.params.id;
     const symbol = req.body.symbol;
@@ -16,6 +17,7 @@ module.exports = {
       res.status(422).json(error);
     }
   },
+  // Remove ticker symbol from user's followedSymbols
   unwatchStock: async (req, res) => {
     const id = req.params.id;
     const symbol = req.body.symbol;
@@ -42,6 +44,7 @@ module.exports = {
       res.status(422).json(error);
     }
   },
+  // Retrieve user followedSymbols from db
   getSymbols: async (req, res) => {
     const id = req.params.id;
 
