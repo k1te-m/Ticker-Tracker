@@ -1,7 +1,6 @@
 @import "../helpers/variables";
 
 .home {
-  border-left: 1px solid $topGradient;
   height: 100%;
   .gain {
     color: $gain;
@@ -29,6 +28,19 @@
       font-size: 14px;
     }
   }
+  .not-found {
+    font-size: 15px;
+    text-align: center;
+
+    i {
+      position: relative;
+      top: 20%;
+      font-size: 3rem;
+      color: $loss;
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+    }
+  }
 }
 
 .home-card {
@@ -49,5 +61,9 @@
   }
   .card-body {
     width: 100%;
+  }
+  .time-stamp {
+    font-size: 10px;
+    color: $secondaryText;
   }
 }
