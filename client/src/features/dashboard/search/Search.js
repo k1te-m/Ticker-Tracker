@@ -47,7 +47,9 @@ const Search = () => {
     <div className="container-fluid search pt-3">
       <div className="row">
         <div className="col-10 col-lg-11">
-          <h3 className="welcome pt-1">Welcome, {username}!</h3>
+          <h3 className="welcome pt-1">
+            Welcome, <span className="gain">{username}</span>!
+          </h3>
         </div>
         <div className="col-2 col-lg-1">
           <LogoutButton logout={() => dispatch(LOGOUT())} />
