@@ -12,7 +12,7 @@ require("dotenv").config();
 
 // @route     GET api/ticker/query/:ticker
 // @desc      Get ticker data
-// @access    Private
+// @access    Public
 router.get("/query/:ticker", async (req, res) => {
   const ticker = req.params.ticker;
 
@@ -32,7 +32,7 @@ router.get("/query/:ticker", async (req, res) => {
 
 // @route     GET api/ticker/batchquery/:tickers
 // @desc      Get multiple tickers data
-// @access    Private
+// @access    Public
 router.get("/batchquery/:tickers", async (req, res) => {
   const tickers = req.params.tickers;
 
@@ -53,16 +53,16 @@ router.get("/batchquery/:tickers", async (req, res) => {
 // @route     PUT api/ticker/follow/:id
 // @desc      Add symbol to user watched tickers
 // @access    Private
-router.put("/follow/:id", watchController.watchStock);
+router.put("/follow/:id", auth, watchController.watchStock);
 
 // @route     PUT api/ticker/follow/:id
 // @desc      Add symbol to user watched tickers
 // @access    Private
-router.put("/unfollow/:id", watchController.unwatchStock);
+router.put("/unfollow/:id", auth, watchController.unwatchStock);
 
 // @route     GET api/ticker/symbols/:id
 // @desc      Get all user followed symbols
 // @access    Private
-router.get("/symbols/:id", watchController.getSymbols);
+router.get("/symbols/:id", auth, watchController.getSymbols);
 
 module.exports = router;
