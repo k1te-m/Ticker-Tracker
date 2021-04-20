@@ -11,7 +11,7 @@ import {
   SORT_LOSERS,
   SORT_ALPHA_REVERSE,
 } from "../search/searchSlice";
-import { formatDollarAmount } from "../../../utils/helpers";
+import { formatDollarAmount, formatDate } from "../../../utils/helpers";
 
 const Home = () => {
   const search = useSelector(selectSearch);
@@ -114,6 +114,11 @@ const Home = () => {
                   </h6>
                 </div>
                 <div className="row">
+                  <span className="time-stamp">
+                    ({formatDate(ticker.quote.latestUpdate)})
+                  </span>
+                </div>
+                <div className="row">
                   <div className="col-7">
                     <span className="card-text gain change">
                       <i className="fas fa-long-arrow-alt-up" />{" "}
@@ -151,6 +156,11 @@ const Home = () => {
                   <h6 className="card-text price loss mb-1">
                     {formatDollarAmount(ticker.quote.latestPrice)}
                   </h6>
+                </div>
+                <div className="row">
+                  <span className="time-stamp">
+                    ({formatDate(ticker.quote.latestUpdate)})
+                  </span>
                 </div>
                 <div className="row">
                   <div className="col-7">
@@ -200,7 +210,7 @@ const Home = () => {
         </div>
       </div>
     );
-  } else {
+  } else if (search.userFollowedSymbols.length > 0) {
     return (
       <div className="container-fluid home">
         <div className="row">
@@ -220,6 +230,35 @@ const Home = () => {
         <span className="secondary">(Tap for more info)</span>
         <div className="row row-cols-md-2 pt-2 pb-2 followed-tickers">
           {followedTickers}
+        </div>
+      </div>
+    );
+  } else if (search.userFollowedSymbols.length === 0) {
+    return (
+      <div className="container-fluid home">
+        <div className="row">
+          <Search />
+        </div>
+
+        <h5 className="mt-3">
+          FOLLOWED TICKERS <i className="fas fa-chart-line" />
+        </h5>
+
+        <div className="row">
+          <span className="secondary ul pb-2">Click to Sort</span>
+        </div>
+        <div className="row row-cols-3 pb-2 justify-content-center">
+          {sortButtons}
+        </div>
+        <span className="secondary">(Tap for more info)</span>
+        <div className="row not-found justify-content-center">
+          <i className="fas fa-search-dollar " />
+          <div className="row">
+            <span>
+              No followed tickers. Begin searching now to add stocks to your
+              watchlist!
+            </span>
+          </div>
         </div>
       </div>
     );
