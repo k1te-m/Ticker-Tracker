@@ -210,7 +210,7 @@ const Home = () => {
         </div>
       </div>
     );
-  } else if (search.userFollowedSymbols.length > 0) {
+  } else if (search.userFollowedData) {
     return (
       <div className="container-fluid home">
         <div className="row">
@@ -233,7 +233,7 @@ const Home = () => {
         </div>
       </div>
     );
-  } else if (search.userFollowedSymbols.length === 0) {
+  } else if (!search.userFollowedData) {
     return (
       <div className="container-fluid home">
         <div className="row">
