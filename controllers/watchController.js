@@ -12,8 +12,9 @@ module.exports = {
       await user.save();
 
       res.send(user.followedSymbols);
-    } catch (error) {}
-    res.status(422).json(error);
+    } catch (error) {
+      res.status(422).json(error);
+    }
   },
   unwatchStock: async (req, res) => {
     const id = req.params.id;
