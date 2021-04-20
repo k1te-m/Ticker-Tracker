@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { selectSearch } from "../search/searchSlice";
 import { Line } from "react-chartjs-2";
@@ -8,8 +8,27 @@ const TickerChart = () => {
   const search = useSelector(selectSearch);
   const { currentTicker } = search;
 
+  const [marketOpen, setMarketOpen] = useState(false);
+
   // today variable to be used to determine if current day is a weekend
   const today = new Date();
+
+  /* useEffect to determine if market is open, if open toggle marketOpen true 
+     add the current stock price and date to TickerChart
+  */
+  useEffect(() => {
+    const day = today.getDay();
+    const hour = today.getUTCHours();
+    const minutes = today.getUTCMinutes();
+
+    if (day !== 6 && day !== 7 && hour >= 13 && hour <= 20) {
+      setMarketOpen(true);
+    }
+    if (hour === 13 && minutes < 30) {
+      setMarketOpen(false);
+    }
+    // eslint-disable-next-line
+  }, [marketOpen]);
 
   // If currentTicker is truthy, pull dates and closing prices available from historical data
   if (currentTicker) {
@@ -20,10 +39,11 @@ const TickerChart = () => {
     let closingPrices = currentTicker.chart.map((dayData) => {
       return dayData.close;
     });
+
     // If it is not a weekend, add the current day date and price to the dates/closingPrices arrays
-    if (today.getDay() !== 6 || 0) {
+    if (marketOpen) {
       dates.unshift(formatDateMDY(currentTicker.quote.latestUpdate));
-      closingPrices.unshift(currentTicker.quote.latestPrice);
+      closingPrices.unshift(currentTicker.quote.latestPrice.toFixed(2));
     }
     // reverse order of both arrays for chronological order
     dates.reverse();
