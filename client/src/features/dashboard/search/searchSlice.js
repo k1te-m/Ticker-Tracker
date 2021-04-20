@@ -84,6 +84,9 @@ export const searchSlice = createSlice({
     CLEAR_ERROR: (state) => {
       return { ...state, error: null };
     },
+    CLEAR_SEARCH: (state) => {
+      return initialState;
+    },
     // Sorts userFollowedData by largest positive % change
     SORT_GAINERS: (state) => {
       state.userFollowedData.sort((a, b) =>
@@ -173,7 +176,7 @@ export const searchSlice = createSlice({
     },
     [getFollowedData.rejected]: (state) => {
       state.isLoading = false;
-      state.error = "Error fetching data.";
+      state.error = "Error fetching batch data.";
     },
   },
 });
@@ -186,6 +189,7 @@ export const {
   SORT_ALPHA_REVERSE,
   SORT_LOSERS,
   CLEAR_ERROR,
+  CLEAR_SEARCH,
 } = searchSlice.actions;
 
 // Selectors
