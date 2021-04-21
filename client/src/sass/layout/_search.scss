@@ -3,6 +3,9 @@
 .search {
   color: $primaryText;
   width: 100%;
+  .gain {
+    color: $gain;
+  }
 }
 
 #bottom {
