@@ -4,7 +4,7 @@
 
 ## Description
 
-A MERN (Redux) stack application using IEX Cloud to retrieve and display current ticker information, historical information, and news. Registered users can add or remove tickers from their watchlist to keep up to date on the latest market movements.
+A MERN (Redux) stack application using IEX Cloud to retrieve and display current stock information, historical information, and news. Registered users can add or remove tickers from their watchlist to keep up to date on the latest market movements.
 
 ## Table of Contents
 
