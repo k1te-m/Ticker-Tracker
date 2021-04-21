@@ -21,9 +21,9 @@ To install the application locally, clone this repository down to your machine. 
 
 _env File Set-up:_
 
-`MONGODB_URI=YOUR URI STRING`
+`MONGODB_URI=YOUR URI STRING HERE`
 
-`HERE JWT_SECRET=YOUR JWT SECRET HERE`
+`JWT_SECRET=YOUR JWT SECRET HERE`
 
 `IEX_KEY=YOUR API KEY HERE`
 
