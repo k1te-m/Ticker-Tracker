@@ -19,7 +19,7 @@ _Steps required to install package:_
 
 To install the application locally, clone this repository down to your machine. Open within the IDE of your choice and utilize `npm i` to install all necessary server and client dependencies. Additionally, you will need to set up a .env file containing your MongoDB URI, JWT Secret, and IEX Cloud API key. Once your .env file has been set-up you may use `npm run start` to launch both the server and client.
 
-_env File Set-up:_
+_.env File Set-up:_
 
 `MONGODB_URI=YOUR URI STRING HERE`
 
